@@ -1,7 +1,8 @@
 import { Head } from "$fresh/runtime.ts"
-import Counter from "@/islands/Counter.tsx"
+// import Counter from "@/islands/Counter.tsx"
 import Header from "@/components/Header.jsx"
 import Footer from "@/components/Footer.jsx"
+import Features from "@/components/Features.jsx"
 import { tw } from "twind"
 import { apply, css, theme } from "twind/css"
 
@@ -15,6 +16,7 @@ const globalStyles = css({
       background:
         "url(https://hyprtxt.dev/images/nebula.jpg) no-repeat center center fixed",
       backgroundSize: "cover",
+      backgroundColor: "#271f3f",
     },
     ".logo": {
       background:
@@ -27,7 +29,7 @@ const globalStyles = css({
     ".landing-page": {
       background: "transparent",
       width: "100%",
-      height: "95vh",
+      minHeight: "95vh",
       color: "white",
       textAlign: "center",
     },
@@ -43,32 +45,28 @@ export default function Home() {
         <title>Hyprtxt | Good Websites</title>
       </Head>
       <div class={tw`${globalStyles}`}></div>
-      <div class="landing-page">
-        <div class="mx-auto max-w-screen-lg">
+      <section class="landing-page">
+        <div class="mx-auto">
           <p class="my-8">Welcome</p>
           <div class="logo"></div>
           <p class="my-8">本当に速いのウェブサイト</p>
         </div>
-      </div>
-      <div class={tw`flex justify-center`}>
+      </section>
+      <section class={tw`flex justify-center`}>
         <Header />
-      </div>
-      <div class="p-4 mx-auto max-w-screen-lg bg-white">
-        <img
-          src="/logo.png"
-          class="w-32 h-32"
-          alt="the hyprtxt logo: </> in a circle"
-        />
-        <p class="my-6">
-          Welcome to `fresh`. Try updating this message in the
-          ./routes/index.tsx file, and refresh.
+      </section>
+      <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white">
+        <h2 id="welcome" class="text(3xl gray-600) font-bold">
+          <a href="#getting-started" class="hover:underline">Welcome</a>
+        </h2>
+        <p>
+          Simple websites can still be very effective at getting your message
+          across. At Hyprtxt we use Deno JavaScript to program websites.
         </p>
-        <p class="my-6">
-          Welcome to `fresh`. Try updating this message in the
-          ./routes/index.tsx file, and refresh. <a href="/thigns">Link</a>
-        </p>
-        <Counter start={3} />
-      </div>
+      </section>
+      <section class="mx-auto max-w-screen-md">
+        <Features />
+      </section>
       <div class={tw`flex justify-center`}>
         <Footer />
       </div>
