@@ -17,9 +17,15 @@ const homeStyles = css({
     ".landing-page": {
       background: "transparent",
       width: "100%",
-      minHeight: "94vh",
+      minHeight: "100vh",
       color: "white",
       textAlign: "center",
+      position: "fixed",
+      zIndex: -1,
+      top: 0,
+    },
+    "section.header-wrapper": {
+      marginTop: "94vh",
     },
   },
 })
@@ -40,7 +46,7 @@ export default function Home() {
           <p class="my-8">本当に速いのウェブサイト</p>
         </div>
       </section>
-      <Layout home={true}>
+      <Layout>
         <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white">
           <h2 id="welcome" class="text(3xl gray-600) font-bold">
             <a href="#welcomes" class="hover:underline">Welcome</a>

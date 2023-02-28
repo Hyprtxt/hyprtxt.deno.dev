@@ -4,14 +4,6 @@ import { tw } from "twind"
 
 import { apply, css, theme } from "twind/css"
 
-const wrapperMargin = css({
-  ":global": {
-    ".header-wrapper": {
-      marginTop: "1rem",
-    },
-  },
-})
-
 const globalStyles = css({
   ":global": {
     a: {
@@ -24,14 +16,15 @@ const globalStyles = css({
       backgroundSize: "cover",
       backgroundColor: "#271f3f",
     },
+    ".header-wrapper": {
+      marginTop: "1rem",
+    },
   },
 })
 
 const Layout = ({ children, home = false }) => (
   <>
-    {home
-      ? <div class={tw`${globalStyles}`}></div>
-      : <div class={tw`${globalStyles} ${wrapperMargin}`}></div>}
+    <div class={tw`${globalStyles}`}></div>
     <section class={tw`flex justify-center header-wrapper`}>
       <Header />
     </section>
