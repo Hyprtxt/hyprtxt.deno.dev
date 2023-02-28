@@ -49,7 +49,7 @@ export default function Home() {
       <Layout>
         <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white">
           <h2 id="welcome" class="text(3xl gray-600) font-bold">
-            <a href="#welcomes" class="hover:underline">Welcome</a>
+            <a href="#welcome">Hello</a>
           </h2>
           <p>
             Simple websites can still be very effective at getting your message

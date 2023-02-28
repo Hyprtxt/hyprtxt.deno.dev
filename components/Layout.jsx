@@ -7,8 +7,15 @@ import { apply, css, theme } from "twind/css"
 const globalStyles = css({
   ":global": {
     a: {
-      color: theme("colors.blue.500"),
-      "&:hover": apply`text-blue-700`,
+      color: theme("colors.indigo"),
+      "&:visited": apply`text-violet`,
+      "&:hover": apply`text-blue underline`,
+      "&:active": apply`text-green`,
+    },
+    h2: {
+      a: {
+        color: theme("colors.dark"),
+      },
     },
     body: {
       background:
