@@ -8,16 +8,18 @@ export default function Features() {
     {
       icon: IconAlarm,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam aliquam",
+        "Fast websites. We keep the Hyper in our HyperText Markup. Lean effective sites get to the message quickly.",
       // link: "#",
     },
     {
       icon: IconAirBalloon,
-      description: "Things",
+      description:
+        "Creative Solutions. I have a track record of getting things done, even when other developers say it can't be done.",
     },
     {
       icon: IconArmchair,
-      description: "Eget aliquam nisl nisl sit amet lorem.",
+      description:
+        "A Decade of Experience. I build businesses by integrating API services into a huge variety of things.",
       // link: "#",
     },
   ]

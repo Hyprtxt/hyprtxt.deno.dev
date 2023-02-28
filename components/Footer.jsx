@@ -4,9 +4,9 @@ import BrandGithub from "https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-gi
 export default function Footer({ children }) {
   const menus = [
     {
-      title: "Documentation",
+      title: "Pages",
       children: [
-        { name: "Getting Started", href: "#" },
+        { name: "Home", href: "/" },
         { name: "Showcase", href: "/showcase" },
       ],
     },
