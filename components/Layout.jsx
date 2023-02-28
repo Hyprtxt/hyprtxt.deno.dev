@@ -1,7 +1,7 @@
 import Header from "@/components/Header.jsx"
 import Footer from "@/components/Footer.jsx"
 import { tw } from "twind"
-
+import { asset } from "$fresh/runtime.ts"
 import { apply, css, theme } from "twind/css"
 
 const globalStyles = css({
@@ -28,8 +28,7 @@ const globalStyles = css({
       "@apply": `text-xl`,
     },
     body: {
-      background:
-        "url(https://hyprtxt.dev/images/nebula.jpg) no-repeat center center fixed",
+      background: `url(${asset("/nebula.jpg")}) no-repeat center center fixed`,
       backgroundSize: "cover",
       backgroundColor: theme("colors.purple"),
     },

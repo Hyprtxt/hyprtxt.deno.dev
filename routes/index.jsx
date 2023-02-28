@@ -2,13 +2,13 @@ import { Head } from "$fresh/runtime.ts"
 import Layout from "@/components/Layout.jsx"
 import Features from "@/components/Features.jsx"
 import { tw } from "twind"
-import { apply, css, theme } from "twind/css"
+import { css } from "twind/css"
+import { asset } from "$fresh/runtime.ts"
 
 const homeStyles = css({
   ":global": {
     ".logo": {
-      background:
-        "url(https://hyprtxt.dev/images/hyprtxt_stack.png) no-repeat center center",
+      background: `url(${asset("/hyprtxt_stack.png")}) no-repeat center center`,
       width: "300px",
       height: "304px",
       margin: "0 auto",
