@@ -27,6 +27,9 @@ const globalStyles = css({
     h3: {
       "@apply": `text-xl`,
     },
+    "ul.list-disc li": {
+      marginLeft: "1rem",
+    },
     body: {
       background: `url(${asset("/nebula.jpg")}) no-repeat center center fixed`,
       backgroundSize: "cover",

@@ -16,49 +16,58 @@ export default function Home() {
             Showcase
           </h1>
           <p>
-            Some websites I have created.
+            Some websites I have created or contributed to. Links open in new
+            tabs.
           </p>
           <h3>Open Source</h3>
-          <ul>
+          <ul class="list-disc">
             <li>
-              <a href="https://videopoker.academy/">Video Poker Academy</a>
+              <a target="_blank" href="https://videopoker.academy/">
+                Video Poker Academy
+              </a>
             </li>
             <li>
-              <a href="https://classic.videopoker.academy/">
+              <a target="_blank" href="https://classic.videopoker.academy/">
                 JavaScript Video Poker
               </a>
             </li>
             <li>
-              <a href="https://fresh-strapi.deno.dev/">Fresh Strapi</a>
+              <a target="_blank" href="https://fresh-strapi.deno.dev/">
+                Fresh Strapi
+              </a>
             </li>
             <li>
-              <a href="https://linceo.club/">Linceo Club</a>
+              <a target="_blank" href="https://linceo.club/">Linceo Club</a>
             </li>
           </ul>
           <h3>For Hire</h3>
-          <ul>
+          <ul class="list-disc">
             <li>
-              <a href="https://cactusstone.com/">Cactus Stone</a>
+              <a target="_blank" href="https://cactusstone.com/">
+                Cactus Stone
+              </a>
             </li>
             <li>
-              <a href="https://andbounds.com/">ANDBOUNDS Inc.</a>
+              <a target="_blank" href="https://andbounds.com/">
+                ANDBOUNDS Inc.
+              </a>
             </li>
             <li>
-              <a href="https://www.afaa.com/">AFAA</a>
+              <a target="_blank" href="https://www.afaa.com/">AFAA</a>
             </li>
           </ul>
           <h3>Contributed to a Team Effort</h3>
-          <ul>
+          <ul class="list-disc">
             <li>
-              <a href="https://www.breakfasttelevision.ca/">
+              <a target="_blank" href="https://www.breakfasttelevision.ca/">
                 Breakfast Television
               </a>
             </li>
             <li>
-              <a href="https://boomi.com/">Dell Boomi</a>
+              <a target="_blank" href="https://boomi.com/">Dell Boomi</a>
             </li>
             <li>
-              <a href="https://8x8.com/">8x8</a>
+              <a target="_blank" href="https://8x8.com/">8x8</a>
             </li>
           </ul>
         </section>
