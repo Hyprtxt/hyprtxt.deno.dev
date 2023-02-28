@@ -12,9 +12,9 @@ export default function Home() {
       </Head>
       <Layout>
         <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white">
-          <h1>
+          <h2>
             Showcase
-          </h1>
+          </h2>
           <p>
             Some websites I have created or contributed to. Links open in new
             tabs.

@@ -66,6 +66,7 @@ export default function Footer({ children }) {
         <a
           href="https://github.com/hyprtxt/hyprtxt.deno.dev"
           class="inline-block hover:text-black"
+          aria-label="Github Icon"
         >
           <BrandGithub />
         </a>
