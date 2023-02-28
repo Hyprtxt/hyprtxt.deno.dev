@@ -35,7 +35,8 @@ export default function Footer({ children }) {
           <a href="mailto:taylor@hyprtxt.dev">taylor@hyprtxt.dev</a>
         </div>
         <div class="text-gray-500">
-          <a href="tel:+12147993897">+1 214 799-3897</a>
+          <a href="tel:+12147993897">+1 214 799-3897</a>{" "}
+          (<a href="sms:+12147993897">sms</a>)
         </div>
       </div>
 
