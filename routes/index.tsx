@@ -16,10 +16,18 @@ const globalStyles = css({
         "url(https://hyprtxt.dev/images/nebula.jpg) no-repeat center center fixed",
       backgroundSize: "cover",
     },
+    ".logo": {
+      background:
+        "url(https://hyprtxt.dev/images/hyprtxt_stack.png) no-repeat center center",
+      width: "300px",
+      height: "304px",
+      margin: "0 auto",
+      backgroundSize: "cover",
+    },
     ".landing-page": {
       background: "transparent",
       width: "100%",
-      height: "100vh",
+      height: "95vh",
       color: "white",
       textAlign: "center",
     },
@@ -36,16 +44,20 @@ export default function Home() {
       </Head>
       <div class={tw`${globalStyles}`}></div>
       <div class="landing-page">
-        This is the place for the header content
+        <div class="mx-auto max-w-screen-lg">
+          <p class="my-8">Welcome</p>
+          <div class="logo"></div>
+          <p class="my-8">本当に速いのウェブサイト</p>
+        </div>
       </div>
       <div class={tw`flex justify-center`}>
         <Header />
       </div>
       <div class="p-4 mx-auto max-w-screen-lg bg-white">
         <img
-          src="/logo.svg"
+          src="/logo.png"
           class="w-32 h-32"
-          alt="the fresh logo: a sliced lemon dripping with juice"
+          alt="the hyprtxt logo: </> in a circle"
         />
         <p class="my-6">
           Welcome to `fresh`. Try updating this message in the
