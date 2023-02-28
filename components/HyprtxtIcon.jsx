@@ -1,6 +1,6 @@
 const HyprtxtIcon = () => (
   <svg
-    class="h-5 w-5 text-gray-500"
+    class={`h-8 w-8 text-gray-500`}
     width="240"
     height="240"
     viewBox="0 0 240 240"

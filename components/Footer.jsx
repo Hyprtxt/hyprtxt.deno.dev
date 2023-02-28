@@ -23,7 +23,7 @@ export default function Footer({ children }) {
     <div class="bg-white flex flex-col md:flex-row w-full max-w-screen-md gap-8 md:gap-16 px-8 py-8 text-sm mb-5">
       <div class="flex-1">
         <div class="flex items-center gap-1">
-          <HyprtxtIcon />
+          <HyprtxtIcon clazz="h-5 w-5" />
           <div class="font-bold text-2xl">
             Hyprtxt
           </div>

@@ -30,13 +30,16 @@ const homeStyles = css({
   },
 })
 
-// "https://hyprtxt.dev/images/nebula.jpg"
-
 export default function Home() {
   return (
     <>
       <Head>
         <title>Hyprtxt | Good Websites</title>
+        <meta name="author" content="Taylor Young" />
+        <meta
+          name="description"
+          content="Hyprtxt is Taylor's Brand. Webmaster for hire. Based in Prescott, AZ. Click on in!"
+        />
       </Head>
       <div class={tw`${homeStyles}`}></div>
       <section class="landing-page">
