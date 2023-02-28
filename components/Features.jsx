@@ -19,7 +19,7 @@ export default function Features() {
     {
       icon: IconArmchair,
       description:
-        "A Decade of Experience. I build businesses by integrating API services into a huge variety of things.",
+        "A Decade of Experience. I build businesses by integrating API services into webpages.",
       // link: "#",
     },
   ]
