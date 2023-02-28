@@ -12,16 +12,26 @@ const globalStyles = css({
       "&:hover": apply`text-blue underline`,
       "&:active": apply`text-green`,
     },
-    h2: {
+    "h1, h2, h3": {
       a: {
-        color: theme("colors.dark"),
+        "@apply": `text-dark`,
+        "&:visited": apply`text-dark`,
       },
+    },
+    h1: {
+      "@apply": `text-4xl`,
+    },
+    h2: {
+      "@apply": `text-2xl`,
+    },
+    h3: {
+      "@apply": `text-xl`,
     },
     body: {
       background:
         "url(https://hyprtxt.dev/images/nebula.jpg) no-repeat center center fixed",
       backgroundSize: "cover",
-      backgroundColor: "#271f3f",
+      backgroundColor: theme("colors.purple"),
     },
     ".header-wrapper": {
       marginTop: "1rem",

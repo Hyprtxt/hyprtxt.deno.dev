@@ -48,12 +48,13 @@ export default function Home() {
       </section>
       <Layout>
         <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white">
-          <h2 id="welcome" class="text(3xl gray-600) font-bold">
+          <h1 id="welcome">
             <a href="#welcome">Hello</a>
-          </h2>
+          </h1>
           <p>
-            Simple websites can still be very effective at getting your message
-            across. At Hyprtxt we use Deno JavaScript to program websites.
+            Simple and Fast websites can be very effective at getting your
+            message across. At Hyprtxt we use Deno JavaScript to program, test
+            and develop websites.
           </p>
         </section>
         <section class="mx-auto max-w-screen-md">

@@ -12,24 +12,53 @@ export default function Home() {
       </Head>
       <Layout>
         <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white">
-          <h2 id="welcome" class="text(3xl gray-600) font-bold">
-            <a href="#welcome" class="hover:underline">Welcome</a>
-          </h2>
+          <h1>
+            Showcase
+          </h1>
           <p>
-            Welcome here's some websites I have created.
+            Some websites I have created.
           </p>
+          <h3>Open Source</h3>
           <ul>
             <li>
-              <a href="https://cactusstone.com/">Cactus Stone</a>
+              <a href="https://videopoker.academy/">Video Poker Academy</a>
             </li>
             <li>
-              <a href="https://videopoker.academy/">Video Poker Academy</a>
+              <a href="https://classic.videopoker.academy/">
+                JavaScript Video Poker
+              </a>
             </li>
             <li>
               <a href="https://fresh-strapi.deno.dev/">Fresh Strapi</a>
             </li>
             <li>
               <a href="https://linceo.club/">Linceo Club</a>
+            </li>
+          </ul>
+          <h3>For Hire</h3>
+          <ul>
+            <li>
+              <a href="https://cactusstone.com/">Cactus Stone</a>
+            </li>
+            <li>
+              <a href="https://andbounds.com/">ANDBOUNDS Inc.</a>
+            </li>
+            <li>
+              <a href="https://www.afaa.com/">AFAA</a>
+            </li>
+          </ul>
+          <h3>Contributed to a Team Effort</h3>
+          <ul>
+            <li>
+              <a href="https://www.breakfasttelevision.ca/">
+                Breakfast Television
+              </a>
+            </li>
+            <li>
+              <a href="https://boomi.com/">Dell Boomi</a>
+            </li>
+            <li>
+              <a href="https://8x8.com/">8x8</a>
             </li>
           </ul>
         </section>
