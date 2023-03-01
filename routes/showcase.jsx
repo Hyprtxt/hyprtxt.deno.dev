@@ -22,13 +22,11 @@ export default function Home() {
           <h3>Open Source</h3>
           <ul class="list-disc">
             <li>
-              <a target="_blank" href="https://videopoker.academy/">
-                Video Poker Academy
-              </a>
+              <a target="_blank" href="https://linceo.club/">Linceo Club</a>
             </li>
             <li>
-              <a target="_blank" href="https://classic.videopoker.academy/">
-                JavaScript Video Poker
+              <a target="_blank" href="https://videopoker.academy/">
+                Video Poker Academy
               </a>
             </li>
             <li>
@@ -37,7 +35,9 @@ export default function Home() {
               </a>
             </li>
             <li>
-              <a target="_blank" href="https://linceo.club/">Linceo Club</a>
+              <a target="_blank" href="https://classic.videopoker.academy/">
+                JavaScript Video Poker
+              </a>
             </li>
           </ul>
           <h3>For Hire</h3>
