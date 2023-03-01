@@ -52,23 +52,6 @@ export default function Home() {
                 ANDBOUNDS Inc.
               </a>
             </li>
-            <li>
-              <a target="_blank" href="https://www.afaa.com/">AFAA</a>
-            </li>
-          </ul>
-          <h3>Contributed to a Team Effort</h3>
-          <ul class="list-disc">
-            <li>
-              <a target="_blank" href="https://www.breakfasttelevision.ca/">
-                Breakfast Television
-              </a>
-            </li>
-            <li>
-              <a target="_blank" href="https://boomi.com/">Dell Boomi</a>
-            </li>
-            <li>
-              <a target="_blank" href="https://8x8.com/">8x8</a>
-            </li>
           </ul>
         </section>
       </Layout>
