@@ -19,7 +19,7 @@ export default function Home() {
             Some websites I have created or contributed to. Links open in new
             tabs.
           </p>
-          <h3>Open Source</h3>
+          <h3>Open Source Websites</h3>
           <ul class="list-disc">
             <li>
               <a target="_blank" href="https://linceo.club/">Linceo Club</a>
@@ -34,11 +34,6 @@ export default function Home() {
                 Fresh Strapi
               </a>
             </li>
-            <li>
-              <a target="_blank" href="https://classic.videopoker.academy/">
-                JavaScript Video Poker
-              </a>
-            </li>
           </ul>
           <h3>For Hire</h3>
           <ul class="list-disc">
@@ -50,6 +45,19 @@ export default function Home() {
             <li>
               <a target="_blank" href="https://andbounds.com/">
                 ANDBOUNDS Inc.
+              </a>
+            </li>
+          </ul>
+          <h3>Open Source Projects</h3>
+          <ul class="list-disc">
+            <li>
+              <a target="_blank" href="https://marionette.deno.dev/">
+                Marionette
+              </a>
+            </li>
+            <li>
+              <a target="_blank" href="https://classic.videopoker.academy/">
+                JavaScript Video Poker
               </a>
             </li>
           </ul>
