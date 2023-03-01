@@ -30,16 +30,18 @@ const globalStyles = css({
     "ul.list-disc li": {
       marginLeft: "1rem",
     },
+    body: {
+      backgroundColor: theme("colors.purple"),
+    },
     ".background": {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100vh",
       background: `url(${asset("/nebula.jpg")}) no-repeat center center fixed`,
       backgroundSize: "cover",
-      backgroundColor: theme("colors.purple"),
+      backgroundAttachment: "fixed",
+      position: "fixed",
+      width: "100%",
+      height: "100vh",
       zIndex: -10,
+      top: 0,
     },
     ".header-wrapper": {
       marginTop: "1rem",
@@ -50,7 +52,6 @@ const globalStyles = css({
 const Layout = ({ children, home = false }) => (
   <>
     <div class={tw`${globalStyles}`}></div>
-    <div class="background"></div>
     <section class={tw`flex justify-center header-wrapper`}>
       <Header />
     </section>
