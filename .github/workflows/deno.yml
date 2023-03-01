@@ -17,6 +17,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
+      DENO_ENV: testing
       DENO_DIR: deno_dir
       CHROMIUM_PATH: deno_dir/deno_puppeteer/chromium/
     steps:
