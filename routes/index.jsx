@@ -42,7 +42,6 @@ export default function Home() {
         />
       </Head>
       <div class={tw`${homeStyles}`}></div>
-      <div className="background"></div>
       <section class="landing-page">
         <div class="mx-auto">
           <p class="my-8">Welcome</p>
