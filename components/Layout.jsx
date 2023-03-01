@@ -43,6 +43,7 @@ const globalStyles = css({
         background: `url(${asset("/nebula.jpg")}) no-repeat center center`,
         backgroundSize: "cover",
       },
+      backgroundColor: theme("colors.purple"),
     },
     ".header-wrapper": {
       marginTop: "1rem",
@@ -50,7 +51,7 @@ const globalStyles = css({
   },
 })
 
-const Layout = ({ children, home = false }) => (
+const Layout = ({ children }) => (
   <>
     <div class={tw`${globalStyles}`}></div>
     <section class={tw`flex justify-center header-wrapper`}>
