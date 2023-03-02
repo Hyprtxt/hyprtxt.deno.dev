@@ -1,12 +1,11 @@
 // ./routes/sitemap.xml.ts
-import { SitemapContext } from "$freshSEO"
+import { SitemapContext } from "fresh_seo"
 import manifest from "@/fresh.gen.ts"
-const BASE_URL = Deno.env.get("BASE_URL") || "http://localhost:8000"
+import { BASE_URL } from "@/utils/config.js"
 
 export const handler = {
   GET(_req, _ctx) {
     const sitemap = new SitemapContext(
-      // "http://example.com",
       BASE_URL,
       manifest,
     )
