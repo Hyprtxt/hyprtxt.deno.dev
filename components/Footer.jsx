@@ -1,5 +1,5 @@
 import HyprtxtIcon from "@/components/HyprtxtIcon.jsx"
-import BrandGithub from "https://deno.land/x/tabler_icons_tsx@0.0.1/tsx/brand-github.tsx"
+import BrandGithub from "$icons/brand-github.tsx"
 
 export default function Footer({ children }) {
   const menus = [

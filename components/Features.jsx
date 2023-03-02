@@ -1,7 +1,7 @@
-import IconAlarm from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/alarm.tsx"
-import IconAirBalloon from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/air-balloon.tsx"
-import IconArmchair from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/armchair.tsx"
-import IconChevronRight from "https://deno.land/x/tabler_icons_tsx@0.0.2/tsx/chevron-right.tsx"
+import IconAlarm from "$icons/alarm.tsx"
+import IconAirBalloon from "$icons/air-balloon.tsx"
+import IconArmchair from "$icons/armchair.tsx"
+import IconChevronRight from "$icons/chevron-right.tsx"
 
 export default function Features() {
   const featureItems = [
