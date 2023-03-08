@@ -4,19 +4,25 @@
 
 import config from "./deno.json" assert { type: "json" }
 import * as $0 from "./routes/_404.jsx"
-import * as $1 from "./routes/index.jsx"
-import * as $2 from "./routes/javascript.jsx"
-import * as $3 from "./routes/showcase.jsx"
-import * as $4 from "./routes/sitemap.xml.js"
+import * as $1 from "./routes/_500.jsx"
+import * as $2 from "./routes/_middleware.js"
+import * as $3 from "./routes/index.jsx"
+import * as $4 from "./routes/javascript.jsx"
+import * as $5 from "./routes/pages/[slug].jsx"
+import * as $6 from "./routes/showcase.jsx"
+import * as $7 from "./routes/sitemap.xml.js"
 import * as $$0 from "./islands/Counter.tsx"
 
 const manifest = {
   routes: {
     "./routes/_404.jsx": $0,
-    "./routes/index.jsx": $1,
-    "./routes/javascript.jsx": $2,
-    "./routes/showcase.jsx": $3,
-    "./routes/sitemap.xml.js": $4,
+    "./routes/_500.jsx": $1,
+    "./routes/_middleware.js": $2,
+    "./routes/index.jsx": $3,
+    "./routes/javascript.jsx": $4,
+    "./routes/pages/[slug].jsx": $5,
+    "./routes/showcase.jsx": $6,
+    "./routes/sitemap.xml.js": $7,
   },
   islands: {
     "./islands/Counter.tsx": $$0,
