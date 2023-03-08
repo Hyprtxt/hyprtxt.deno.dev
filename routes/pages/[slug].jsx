@@ -1,10 +1,11 @@
 import Layout from "@/components/Layout.jsx"
 import { API_URL, TOKEN } from "@/utils/config.js"
 import { Head } from "$fresh/runtime.ts"
-import { parse, stringify } from "qs"
+import { stringify } from "qs"
 
 export const handler = {
   GET: async (_req, ctx) => {
+    // This query could be a lookup somehow?
     const pages = await fetch(
       `${API_URL}/pages?filters[slug][$eq]=${ctx.params.slug}`,
       {
