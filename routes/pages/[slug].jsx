@@ -39,12 +39,37 @@ export const handler = {
       },
     )
       .then(async (res) => await res.json())
-    console.log(page.data?.attributes.content, "TIHSI")
+    // console.log(page.data?.attributes.content, "TIHSI")
     if (!page.data) {
       return ctx.renderNotFound()
     }
     return ctx.render({ ...ctx.state, page })
   },
+}
+
+const StrapiMedia = ({ data, index }) => {
+  const sizes = ["thumbnail", "small", "medium", "large"]
+  if (!data) {
+    return <></>
+  }
+  const sources = sizes.reduce(
+    (acc, current) => {
+      const thing = data.attributes.formats[current]
+      if (thing === undefined) {
+        return acc
+      }
+      acc.push(`${thing.url} ${thing.width}w`)
+      return acc
+    },
+    [],
+  )
+  return (
+    <img
+      src={data.attributes.formats.thumbnail.url}
+      srcset={sources.join(" ,")}
+      alt={data.attributes.alternativeText}
+    />
+  )
 }
 
 export default function PageIndexPage(props) {
@@ -79,7 +104,9 @@ export default function PageIndexPage(props) {
             return (
               <>
                 <h1>{title}</h1>
-                {/* <pre>{JSON.stringify(media, null, 2 )}</pre> */}
+                {media.data.map((item, idx) => (
+                  <StrapiMedia data={item} index={idx} />
+                ))}
               </>
             )
           }

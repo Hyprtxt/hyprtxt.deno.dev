@@ -11,6 +11,7 @@ import * as $4 from "./routes/javascript.jsx"
 import * as $5 from "./routes/pages/[slug].jsx"
 import * as $6 from "./routes/showcase.jsx"
 import * as $7 from "./routes/sitemap.xml.js"
+import * as $8 from "./routes/uploads/[file].js"
 import * as $$0 from "./islands/Counter.tsx"
 
 const manifest = {
@@ -23,6 +24,7 @@ const manifest = {
     "./routes/pages/[slug].jsx": $5,
     "./routes/showcase.jsx": $6,
     "./routes/sitemap.xml.js": $7,
+    "./routes/uploads/[file].js": $8,
   },
   islands: {
     "./islands/Counter.tsx": $$0,
