@@ -1,17 +1,28 @@
 // ./routes/sitemap.xml.ts
 import { SitemapContext } from "fresh_seo"
 import manifest from "@/fresh.gen.ts"
-import { BASE_URL } from "@/utils/config.js"
+import { API_URL, BASE_URL, TOKEN } from "@/utils/config.js"
 
 export const handler = {
-  GET(_req, _ctx) {
+  GET: async (_req, _ctx) => {
     const sitemap = new SitemapContext(
       BASE_URL,
       manifest,
     )
-
-    // You can add additional page here
-    // sitemap.add("/blog/hello-world")
+    const pages = await fetch(
+      `${API_URL}/pages?populate[meta]=*`,
+      {
+        headers: new Headers({
+          Authorization: `Bearer ${TOKEN}`,
+        }),
+      },
+    )
+      .then(async (res) => await res.json())
+    pages.data.map((page) => {
+      // console.log(page)
+      sitemap.add(`/pages/${page.attributes.slug}`)
+      return
+    })
     return sitemap.render()
   },
 }
