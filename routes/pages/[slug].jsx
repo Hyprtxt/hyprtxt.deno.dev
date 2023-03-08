@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout.jsx"
 import { API_URL, TOKEN } from "@/utils/config.js"
 import { Head } from "$fresh/runtime.ts"
+import { parse, stringify } from "qs"
 
 export const handler = {
   GET: async (_req, ctx) => {
@@ -14,11 +15,23 @@ export const handler = {
     )
       .then(async (res) => await res.json())
 
+    const page_query = {
+      populate: {
+        meta: "*",
+        content: {
+          on: {
+            "layout.gallery": {
+              populate: "*",
+            },
+            "layout.text-content": {
+              populate: "*",
+            },
+          },
+        },
+      },
+    }
     const page = await fetch(
-      `${API_URL}/pages/${
-        pages.data[0].id
-      }?populate[content]=*&populate[meta]=*`,
-      // `&populate[content][populate]=*`,
+      `${API_URL}/pages/${pages.data[0].id}?${stringify(page_query)}`,
       {
         headers: new Headers({
           Authorization: `Bearer ${TOKEN}`,
@@ -26,7 +39,7 @@ export const handler = {
       },
     )
       .then(async (res) => await res.json())
-    console.log(page, "TIHSI")
+    console.log(page.data?.attributes.content, "TIHSI")
     if (!page.data) {
       return ctx.renderNotFound()
     }
@@ -66,7 +79,7 @@ export default function PageIndexPage(props) {
             return (
               <>
                 <h1>{title}</h1>
-                <pre>{JSON.stringify(media, null, 2 )}</pre>
+                {/* <pre>{JSON.stringify(media, null, 2 )}</pre> */}
               </>
             )
           }
