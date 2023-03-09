@@ -39,17 +39,17 @@ export default function Home() {
           <ul class="list-disc">
             <li>
               <a target="_blank" href="https://redstonefoods.com/">
-                Redstone Foods (Ruby on Rails)
+                Redstone Foods
               </a>
             </li>
             <li>
               <a target="_blank" href="https://cactusstone.com/">
-                Cactus Stone (Gulp)
+                Cactus Stone
               </a>
             </li>
             <li>
               <a target="_blank" href="https://andbounds.com/">
-                ANDBOUNDS Inc. (Fresh on Strapi)
+                ANDBOUNDS Inc.
               </a>
             </li>
           </ul>
