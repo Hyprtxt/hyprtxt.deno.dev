@@ -4,17 +4,17 @@ import Layout from "@/components/Layout.jsx"
 // import { tw } from "twind"
 // import { apply, css, theme } from "twind/css"
 
-export default function Home() {
+export default function Showcase(props) {
   return (
     <>
       <Head>
         <title>Hyprtxt | Good Websites</title>
       </Head>
-      <Layout>
-        <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white">
-          <h2>
+      <Layout data={props}>
+        <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white markdown">
+          <h1>
             Showcase
-          </h2>
+          </h1>
           <p>
             Some websites I have created or contributed to. Links open in new
             tabs.

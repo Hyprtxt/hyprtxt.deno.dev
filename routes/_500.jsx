@@ -2,7 +2,8 @@ import { Head } from "$fresh/runtime.ts"
 import Layout from "@/components/Layout.jsx"
 import { DENO_ENV } from "@/utils/config.js"
 
-export default function Page500({ error }) {
+export default function Page500(props) {
+  const { error } = props
   let message = undefined
   if (error instanceof Error) {
     message = error.stack
@@ -14,7 +15,7 @@ export default function Page500({ error }) {
       <Head>
         <title>Hyprtxt | Server Error</title>
       </Head>
-      <Layout>
+      <Layout data={props}>
         <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white">
           <h2>
             500 Error

@@ -104,7 +104,7 @@ export default function PageIndexPage(props) {
   const { meta, content } = data.page.data.attributes
   const { title, description } = meta
   return (
-    <Layout data={data}>
+    <Layout data={props}>
       <Head>
         <title>Hyprtxt | {title}</title>
         <meta name="author" content="Taylor Young" />

@@ -9,6 +9,7 @@ export async function handler(req, ctx) {
   const { pathname } = new URL(req.url)
   const withSession = [
     "/",
+    // "/pages",
   ]
   if (
     withSession.includes(pathname) ||

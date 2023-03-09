@@ -1,15 +1,18 @@
 import { Head } from "$fresh/runtime.ts"
 import Layout from "@/components/Layout.jsx"
-// import Features from "@/components/Features.jsx"
-// import { tw } from "twind"
-// import { apply, css, theme } from "twind/css"
 import { API_URL, TOKEN } from "@/utils/config.js"
+import { stringify } from "qs"
 
 export const handler = {
   GET: async (_req, ctx) => {
     // This query could be a lookup somehow?
+    const query = stringify({
+      populate: {
+        meta: "*",
+      },
+    })
     const pages = await fetch(
-      `${API_URL}/pages?populate[meta]=*`,
+      `${API_URL}/pages?${query}`,
       {
         headers: new Headers({
           Authorization: `Bearer ${TOKEN}`,
@@ -29,12 +32,12 @@ export default function Home(props) {
       <Head>
         <title>Hyprtxt | Good Websites</title>
       </Head>
-      <Layout>
-        <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white">
-          <h2>
+      <Layout data={props}>
+        <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white markdown">
+          <h1>
             Pages
-          </h2>
-          <ul class="list-disc">
+          </h1>
+          <ul>
             {props.data.pages.map((page) => {
               // console.log(page, "PAGE")
               const { slug, meta } = page.attributes

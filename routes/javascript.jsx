@@ -4,13 +4,13 @@ import Layout from "@/components/Layout.jsx"
 // import { tw } from "twind"
 // import { apply, css, theme } from "twind/css"
 
-export default function Home() {
+export default function JSPage(props) {
   return (
     <>
       <Head>
         <title>Hyprtxt | Good Websites</title>
       </Head>
-      <Layout>
+      <Layout data={props}>
         <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white">
           <h2 id="welcome" class="text(3xl gray-600) font-bold">
             <a href="#welcome" class="hover:underline">Welcome</a>
