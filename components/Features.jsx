@@ -14,12 +14,12 @@ export default function Features() {
     {
       icon: IconAirBalloon,
       description:
-        "Creative Solutions. I have a track record of getting things done, even when other developers say it can't be done.",
+        "Creative Solutions. A track record of getting things done, even when other developers say it can't be done.",
     },
     {
       icon: IconArmchair,
       description:
-        "Tons of Experience. I build businesses by integrating computer services together.",
+        "Tons of Experience. We build businesses by integrating computer services together.",
       // link: "#",
     },
   ]
