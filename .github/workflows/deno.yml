@@ -17,18 +17,18 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      DENO_ENV: testing
-      BASE_URL: http://localhost:8000
+      # DENO_ENV: testing
+      # BASE_URL: http://localhost:8000
       DENO_DIR: deno_dir
       CHROMIUM_PATH: deno_dir/deno_puppeteer/chromium/
     steps:
       - name: Setup repo
         uses: actions/checkout@v3
 
-      # - name: Setup .env secrets file
-      #   run: echo $ENV_GITHUB_ACTIONS | base64 -d > .env
-      #   env:
-      #     ENV_GITHUB_ACTIONS: ${{ secrets.ENV_GITHUB_ACTIONS }}
+      - name: Setup .env secrets file
+        run: echo $ENV_GITHUB_ACTIONS | base64 -d > .env
+        env:
+          ENV_GITHUB_ACTIONS: ${{ secrets.ENV_GITHUB_ACTIONS }}
 
       - name: Setup Deno
         # uses: denoland/setup-deno@v1
