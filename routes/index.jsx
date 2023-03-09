@@ -2,33 +2,7 @@ import { Head } from "$fresh/runtime.ts"
 import Layout from "@/components/Layout.jsx"
 import Features from "@/components/Features.jsx"
 import { tw } from "twind"
-import { css } from "twind/css"
-import { asset } from "$fresh/runtime.ts"
-
-const homeStyles = css({
-  ":global": {
-    ".logo": {
-      background: `url(${asset("/hyprtxt_stack.png")}) no-repeat center center`,
-      width: "300px",
-      height: "304px",
-      margin: "0 auto",
-      backgroundSize: "cover",
-    },
-    ".landing-page": {
-      background: "transparent",
-      width: "100%",
-      minHeight: "100vh",
-      color: "white",
-      textAlign: "center",
-      position: "fixed",
-      zIndex: -1,
-      top: 0,
-    },
-    "section.header-wrapper": {
-      marginTop: "94vh",
-    },
-  },
-})
+import { homeStyles } from "@/utils/style.js"
 
 export default function Home(props) {
   return (
