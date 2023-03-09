@@ -9,6 +9,7 @@ const globalStyles = css({
   ":global": {
     a: {
       color: theme("colors.indigo"),
+      "@apply": "decoration-1 underline",
       "&:visited": apply`text-violet`,
       "&:hover": apply`text-blue underline`,
       "&:active": apply`text-green`,
@@ -29,8 +30,19 @@ const globalStyles = css({
     h3: {
       "@apply": `text-xl`,
     },
-    "ul.list-disc li": {
-      marginLeft: "1rem",
+    ".markdown": {
+      "ul, ol": {
+        "li": {
+          marginLeft: "1rem",
+        },
+        marginBottom: "1rem",
+      },
+      "ul li": {
+        listStyle: "disc",
+      },
+      "ol li": {
+        listStyle: "number",
+      },
     },
     "p": {
       "@apply": `mb-3`,
