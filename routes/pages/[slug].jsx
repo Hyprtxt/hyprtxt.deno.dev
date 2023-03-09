@@ -2,12 +2,26 @@ import Layout from "@/components/Layout.jsx"
 import { API_URL, TOKEN } from "@/utils/config.js"
 import { Head } from "$fresh/runtime.ts"
 import { stringify } from "qs"
+import { parse } from "marked"
 
 export const handler = {
   GET: async (_req, ctx) => {
     // This query could be a lookup somehow?
+
+    const SLUG_REG_EXP = /^[a-z0-9]+(?:-[a-z0-9]+)*$/g
+    const slug = ctx.params.slug.toLowerCase()
+    if (!SLUG_REG_EXP.test(slug)) {
+      return ctx.renderNotFound()
+    }
+    const pages_query = stringify({
+      filters: {
+        slug: {
+          $eq: slug,
+        },
+      },
+    })
     const pages = await fetch(
-      `${API_URL}/pages?filters[slug][$eq]=${ctx.params.slug}`,
+      `${API_URL}/pages?${pages_query}`,
       {
         headers: new Headers({
           Authorization: `Bearer ${TOKEN}`,
@@ -16,7 +30,7 @@ export const handler = {
     )
       .then(async (res) => await res.json())
 
-    const page_query = {
+    const page_query = stringify({
       populate: {
         meta: "*",
         content: {
@@ -30,9 +44,17 @@ export const handler = {
           },
         },
       },
+    })
+    if (!pages.data.length) {
+      return ctx.renderNotFound()
+    }
+    // console.log(pages, "KLJDFSLKJ")
+    const page_id = parseInt(pages.data[0].id)
+    if (!page_id) {
+      return ctx.renderNotFound()
     }
     const page = await fetch(
-      `${API_URL}/pages/${pages.data[0].id}?${stringify(page_query)}`,
+      `${API_URL}/pages/${pages.data[0].id}?${page_query}`,
       {
         headers: new Headers({
           Authorization: `Bearer ${TOKEN}`,
@@ -94,10 +116,10 @@ export default function PageIndexPage(props) {
           if (__component === "layout.text-content") {
             const { title, content } = component
             return (
-              <>
+              <section>
                 <h1>{title}</h1>
-                <p>{content}</p>
-              </>
+                <div dangerouslySetInnerHTML={{ __html: parse(content) }}></div>
+              </section>
             )
           }
           if (__component === "layout.gallery") {

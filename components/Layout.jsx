@@ -14,6 +14,7 @@ const globalStyles = css({
       "&:active": apply`text-green`,
     },
     "h1, h2, h3": {
+      "@apply": `mb-3`,
       a: {
         "@apply": `text-dark`,
         "&:visited": apply`text-dark`,
@@ -30,6 +31,9 @@ const globalStyles = css({
     },
     "ul.list-disc li": {
       marginLeft: "1rem",
+    },
+    "p": {
+      "@apply": `mb-3`,
     },
     body: {
       "&::before": {
