@@ -37,7 +37,7 @@ export default function Home(props) {
           <h1>
             Pages
           </h1>
-          <ul>
+          <ul id="pages">
             {props.data.pages.map((page) => {
               // console.log(page, "PAGE")
               const { slug, meta } = page.attributes
