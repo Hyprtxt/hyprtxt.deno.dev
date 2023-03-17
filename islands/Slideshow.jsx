@@ -6,14 +6,13 @@ import IconChevronLeft from "$icons/chevron-left.tsx"
 import { tw } from "twind"
 
 const Slideshow = (props) => {
-  const SLIDE_INTERVAL = 1000
-  const TRANSITION_INTERVAL = 700
+  const SLIDE_INTERVAL = parseInt(props.interval) ? props.interval : 1000
   const currentSlide = useSignal(0)
   const automatic = useSignal(props.automatic ? true : false)
   const slideshow = useRef(null)
   const { media } = props
   const slideClasses = (idx) =>
-    tw`slide absolute top-0 left-0 transition-all ease-in-out duration-${TRANSITION_INTERVAL} transform ${
+    tw`slide absolute top-0 left-0 transition-all ease-in-out duration-700 transform ${
       currentSlide.value === idx ? "translate-x-0" : "translate-x-full"
     }`
   const nextSlide = () => {

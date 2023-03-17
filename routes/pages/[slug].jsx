@@ -125,7 +125,13 @@ export default function PageIndexPage(props) {
           }
           if (__component === "layout.slideshow") {
             const { media } = component
-            return <Slideshow media={media} automatic />
+            return (
+              <Slideshow
+                media={media}
+                automatic
+                interval={4000}
+              />
+            )
           }
           return <p>We couldn't find that component</p>
         })}
