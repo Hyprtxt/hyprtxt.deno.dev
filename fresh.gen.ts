@@ -14,6 +14,7 @@ import * as $7 from "./routes/showcase.jsx"
 import * as $8 from "./routes/sitemap.xml.js"
 import * as $9 from "./routes/uploads/[file].js"
 import * as $$0 from "./islands/Counter.tsx"
+import * as $$1 from "./islands/Slideshow.jsx"
 
 const manifest = {
   routes: {
@@ -30,6 +31,7 @@ const manifest = {
   },
   islands: {
     "./islands/Counter.tsx": $$0,
+    "./islands/Slideshow.jsx": $$1,
   },
   baseUrl: import.meta.url,
   config,

@@ -3,11 +3,12 @@ import { API_URL, TOKEN } from "@/utils/config.js"
 import { Head } from "$fresh/runtime.ts"
 import { stringify } from "qs"
 import { parse } from "marked"
+import Slideshow from "@/islands/Slideshow.jsx"
+import StrapiMedia from "@/components/StrapiMedia.jsx"
 
 export const handler = {
   GET: async (_req, ctx) => {
     // This query could be a lookup somehow?
-
     const SLUG_REG_EXP = /^[a-z0-9]+(?:-[a-z0-9]+)*$/g
     const slug = ctx.params.slug.toLowerCase()
     if (!SLUG_REG_EXP.test(slug)) {
@@ -44,6 +45,9 @@ export const handler = {
             "layout.markdown": {
               populate: "*",
             },
+            "layout.slideshow": {
+              populate: "*",
+            },
           },
         },
       },
@@ -71,31 +75,6 @@ export const handler = {
     }
     return ctx.render({ ...ctx.state, page })
   },
-}
-
-const StrapiMedia = ({ data, index }) => {
-  const sizes = ["thumbnail", "small", "medium", "large"]
-  if (!data) {
-    return <></>
-  }
-  const sources = sizes.reduce(
-    (acc, current) => {
-      const thing = data.attributes.formats[current]
-      if (thing === undefined) {
-        return acc
-      }
-      acc.push(`${thing.url} ${thing.width}w`)
-      return acc
-    },
-    [],
-  )
-  return (
-    <img
-      src={data.attributes.formats.thumbnail.url}
-      srcset={sources.join(" ,")}
-      alt={data.attributes.alternativeText}
-    />
-  )
 }
 
 export default function PageIndexPage(props) {
@@ -143,6 +122,10 @@ export default function PageIndexPage(props) {
                 ))}
               </>
             )
+          }
+          if (__component === "layout.slideshow") {
+            const { media } = component
+            return <Slideshow media={media} />
           }
           return <p>We couldn't find that component</p>
         })}
