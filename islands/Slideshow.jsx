@@ -16,7 +16,7 @@ const Slideshow = (props) => {
   const slideshow = useRef(null)
   const { media } = props
 
-  const slideClasses = (idx) =>
+  const slideClasses = (idx = 0) =>
     tw`slide absolute top-0 left-0 transition-all ease-in-out duration-700 transform ${
       currentSlide.value === idx ? "translate-x-0" : "translate-x-full"
     }`
@@ -39,7 +39,7 @@ const Slideshow = (props) => {
     }
   }
 
-  const chevronClick = (doCallback) => {
+  const chevronClick = (doCallback = () => {}) => {
     if (automatic.value) automatic.value = false
     return doCallback()
   }
@@ -51,7 +51,7 @@ const Slideshow = (props) => {
     return () => clearInterval(interval)
   }, [])
 
-  const goToSlide = (slide_index) => {
+  const goToSlide = (slide_index = 0) => {
     if (automatic.value) automatic.value = false
     currentSlide.value = slide_index
   }
