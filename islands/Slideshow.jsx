@@ -9,8 +9,11 @@ import { tw } from "twind"
 // const currentSlide = signal(0)
 
 const Slideshow = (props) => {
+  const NAVIGATION_COLOR = `text-white`
+  const CHEVRON_STYLE =
+    `absolute z-10 w-10 h-10 ${NAVIGATION_COLOR} cursor-pointer`
   const SHOW_NAVIGATION = props.showNavigation === false ? false : true
-  const SLIDE_INTERVAL = parseInt(props.interval) ? props.interval : 1000
+  const SLIDE_INTERVAL = parseInt(props.interval) ? props.interval : 3500
   const currentSlide = useSignal(0)
   const automatic = useSignal(props.automatic ? true : false)
   const slideshow = useRef(null)
@@ -58,7 +61,9 @@ const Slideshow = (props) => {
 
   const DotsNavigation = () => {
     return (
-      <div class="slide_nav w-full text-white absolute bottom-0 flex justify-center cursor-pointer">
+      <div
+        class={`slide_nav w-full ${NAVIGATION_COLOR} absolute bottom-0 flex justify-center cursor-pointer`}
+      >
         {media.data.map((_item, idx) => {
           return (
             <div
@@ -79,14 +84,14 @@ const Slideshow = (props) => {
     <>
       <div
         ref={slideshow}
-        class="slideshow relative flex-1 flex-end p-0 h-full w-full overflow-hidden "
+        class="slideshow relative flex-1 flex-end p-0 h-full w-full overflow-hidden"
       >
         <IconChevronLeft
-          class="absolute top-1/2 left-0 z-10 w-10 h-10 text-white cursor-pointer"
+          class={`top-1/2 left-0 ${CHEVRON_STYLE}`}
           onClick={() => chevronClick(previousSlide)}
         />
         <IconChevronRight
-          class="absolute top-1/2 right-0 z-10 w-10 h-10 text-white cursor-pointer"
+          class={`top-1/2 right-0 ${CHEVRON_STYLE}`}
           onClick={() => chevronClick(nextSlide)}
         />
         {media.data.map((item, idx) => {
