@@ -44,10 +44,8 @@ export const globalStyles = css({
     ".markdown": {
       "a": apply`underline`,
       "ul, ol": {
-        "li": {
-          marginLeft: "1rem",
-        },
-        marginBottom: "1rem",
+        "li": apply`ml-5`,
+        "&": apply`mb-3`,
       },
       "ul li": apply`list-disc`,
       "ol li": apply`list-decimal`,
