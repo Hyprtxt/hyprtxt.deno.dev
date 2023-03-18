@@ -9,7 +9,7 @@ import { tw } from "twind"
 // const currentSlide = signal(0)
 
 const Slideshow = (props) => {
-  const showNavigation = props.showNavigation === false ? false : true
+  const SHOW_NAVIGATION = props.showNavigation === false ? false : true
   const SLIDE_INTERVAL = parseInt(props.interval) ? props.interval : 1000
   const currentSlide = useSignal(0)
   const automatic = useSignal(props.automatic ? true : false)
@@ -45,10 +45,11 @@ const Slideshow = (props) => {
   }
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       if (automatic.value) nextSlide()
     }, SLIDE_INTERVAL)
-  }, [currentSlide])
+    return () => clearInterval(interval)
+  }, [])
 
   const goToSlide = (slide_index) => {
     if (automatic.value) automatic.value = false
@@ -109,7 +110,7 @@ const Slideshow = (props) => {
             />
           )
         })}
-        {showNavigation &&
+        {SHOW_NAVIGATION &&
           <DotsNavigation />}
       </div>
     </>
