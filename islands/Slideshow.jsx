@@ -5,9 +5,6 @@ import IconChevronRight from "$icons/chevron-right.tsx"
 import IconChevronLeft from "$icons/chevron-left.tsx"
 import { tw } from "twind"
 
-// import { signal } from "@preact/signals"
-// const currentSlide = signal(0)
-
 const Slideshow = (props) => {
   const NAVIGATION_COLOR = `text-white`
   const CHEVRON_STYLE =
@@ -79,6 +76,7 @@ const Slideshow = (props) => {
       </div>
     )
   }
+  console.log(media.data[0])
 
   return (
     <>
@@ -94,29 +92,16 @@ const Slideshow = (props) => {
           class={`top-1/2 right-0 ${CHEVRON_STYLE}`}
           onClick={() => chevronClick(nextSlide)}
         />
-        {media.data.map((item, idx) => {
-          if (idx === 0) {
-            return (
-              <>
-                <StrapiMedia data={item} index={idx} class="opacity-0" />
-                <StrapiMedia
-                  data={item}
-                  index={idx}
-                  class={slideClasses(idx)}
-                />
-              </>
-            )
-          }
-          return (
-            <StrapiMedia
-              data={item}
-              index={idx}
-              class={slideClasses(idx)}
-            />
-          )
-        })}
+        {media.data.map((item, idx) => (
+          <StrapiMedia
+            data={item}
+            index={idx}
+            class={slideClasses(idx)}
+          />
+        ))}
         {SHOW_NAVIGATION &&
           <DotsNavigation />}
+        <StrapiMedia data={media.data[0]} class="opacity-0" />
       </div>
     </>
   )
