@@ -100,7 +100,10 @@ const Slideshow = (props) => {
         ))}
         {SHOW_NAVIGATION &&
           <DotsNavigation />}
-        <StrapiMedia data={media.data[0]} class="opacity-0" />
+        <StrapiMedia
+          data={media.data[0]}
+          class="opacity-0 pointer-events-none"
+        />
       </div>
     </>
   )
