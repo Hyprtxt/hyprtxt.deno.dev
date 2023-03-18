@@ -30,25 +30,17 @@ export const globalStyles = css({
       "&:active": apply`text-green`,
     },
     "h1, h2, h3": {
-      "@apply": `mb-3`,
+      "&": apply`mb-3`,
       a: {
-        "@apply": `text-dark`,
+        "&": apply`text-dark`,
         "&:visited": apply`text-dark`,
       },
     },
-    h1: {
-      "@apply": `text-4xl`,
-    },
-    h2: {
-      "@apply": `text-2xl`,
-    },
-    h3: {
-      "@apply": `text-xl`,
-    },
+    h1: apply`text-4xl`,
+    h2: apply`text-2xl`,
+    h3: apply`text-xl`,
     ".markdown": {
-      "a": {
-        "@apply": "underline",
-      },
+      "a": apply`underline`,
       "ul, ol": {
         "li": {
           marginLeft: "1rem",
@@ -62,9 +54,7 @@ export const globalStyles = css({
         listStyle: "number",
       },
     },
-    "p": {
-      "@apply": `mb-3 ${animation("300ms ease-in-out 1", fadeIn)}`,
-    },
+    "p": apply`mb-3 ${animation("300ms ease-in-out 1", fadeIn)}`,
     body: {
       "&::before": {
         content: `""`,
