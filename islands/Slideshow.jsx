@@ -76,7 +76,6 @@ const Slideshow = (props) => {
       </div>
     )
   }
-  console.log(media.data[0])
 
   return (
     <>
