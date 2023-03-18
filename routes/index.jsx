@@ -3,8 +3,28 @@ import Layout from "@/components/Layout.jsx"
 import Features from "@/components/Features.jsx"
 import { tw } from "twind"
 import { homeStyles } from "@/utils/style.js"
+import { animation, keyframes } from "twind/css"
 
 export default function Home(props) {
+  const fadeIn = keyframes({
+    "0%": {
+      opacity: 0,
+    },
+    "100%": {
+      opacity: 1,
+    },
+  })
+  const fadeInLast = keyframes({
+    "0%": {
+      opacity: 0,
+    },
+    "70%": {
+      opacity: 0,
+    },
+    "100%": {
+      opacity: 1,
+    },
+  })
   return (
     <>
       <Head>
@@ -19,8 +39,10 @@ export default function Home(props) {
       <section class="landing-page">
         <div class="mx-auto">
           <p class="my-8">Welcome 👋</p>
-          <div class="logo"></div>
-          <p class="my-8">本当に速いのウェブサイト</p>
+          <div class={tw`logo ${animation("600ms ease-in 1", fadeIn)}`}></div>
+          <p class={tw`my-8 ${animation("1200ms ease-in 1", fadeInLast)}`}>
+            本当に速いのウェブサイト
+          </p>
         </div>
       </section>
       <Layout data={props}>
