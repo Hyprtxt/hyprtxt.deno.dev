@@ -1,5 +1,25 @@
 import { asset } from "$fresh/runtime.ts"
-import { apply, css, theme } from "twind/css"
+import { animation, apply, css, keyframes, theme } from "twind/css"
+
+export const fadeIn = keyframes({
+  "0%": {
+    opacity: 0,
+  },
+  "100%": {
+    opacity: 1,
+  },
+})
+export const fadeInLast = keyframes({
+  "0%": {
+    opacity: 0,
+  },
+  "70%": {
+    opacity: 0,
+  },
+  "100%": {
+    opacity: 1,
+  },
+})
 
 export const globalStyles = css({
   ":global": {
@@ -43,7 +63,7 @@ export const globalStyles = css({
       },
     },
     "p": {
-      "@apply": `mb-3`,
+      "@apply": `mb-3 ${animation("300ms ease-in-out 1", fadeIn)}`,
     },
     body: {
       "&::before": {
@@ -69,12 +89,14 @@ export const globalStyles = css({
 export const homeStyles = css({
   ":global": {
     ".logo": {
+      "&": apply(animation("600ms ease-in 1", fadeIn)),
       background: `url(${asset("/hyprtxt_stack.png")}) no-repeat center center`,
       width: "300px",
       height: "304px",
       margin: "0 auto",
       backgroundSize: "cover",
     },
+    ".tagline": apply`my-8 ${animation("1200ms ease-in 1", fadeInLast)}`,
     ".landing-page": {
       background: "transparent",
       width: "100%",
