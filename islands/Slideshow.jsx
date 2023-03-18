@@ -31,6 +31,10 @@ const Slideshow = (props) => {
       currentSlide.value--
     }
   }
+  const goToSlide = (slide_index) => {
+    if (automatic.value) automatic.value = false
+    currentSlide.value = slide_index
+  }
   const chevronClick = (doCallback) => {
     if (automatic.value) automatic.value = false
     return doCallback()
@@ -76,6 +80,33 @@ const Slideshow = (props) => {
             />
           )
         })}
+        <div class="slide_nav w-full text-white absolute bottom-0 flex justify-center cursor-pointer">
+          {media.data.map((_item, idx) => {
+            if (idx === currentSlide.value) {
+              return (
+                <div
+                  class="px-1"
+                  onClick={() => {
+                    goToSlide(idx)
+                  }}
+                >
+                  ●
+                </div>
+              )
+            } else {
+              return (
+                <div
+                  class="px-1"
+                  onClick={() => {
+                    goToSlide(idx)
+                  }}
+                >
+                  ○
+                </div>
+              )
+            }
+          })}
+        </div>
       </div>
     </>
   )
