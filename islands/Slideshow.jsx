@@ -5,16 +5,22 @@ import IconChevronRight from "$icons/chevron-right.tsx"
 import IconChevronLeft from "$icons/chevron-left.tsx"
 import { tw } from "twind"
 
+// import { signal } from "@preact/signals"
+// const currentSlide = signal(0)
+
 const Slideshow = (props) => {
+  const showNavigation = props.showNavigation === false ? false : true
   const SLIDE_INTERVAL = parseInt(props.interval) ? props.interval : 1000
   const currentSlide = useSignal(0)
   const automatic = useSignal(props.automatic ? true : false)
   const slideshow = useRef(null)
   const { media } = props
+
   const slideClasses = (idx) =>
     tw`slide absolute top-0 left-0 transition-all ease-in-out duration-700 transform ${
       currentSlide.value === idx ? "translate-x-0" : "translate-x-full"
     }`
+
   const nextSlide = () => {
     const numberSlides = slideshow.current.querySelectorAll(".slide")
     if (numberSlides.length === currentSlide.value + 1) {
@@ -23,6 +29,7 @@ const Slideshow = (props) => {
       currentSlide.value++
     }
   }
+
   const previousSlide = () => {
     const numberSlides = slideshow.current.querySelectorAll(".slide")
     if (currentSlide.value === 0) {
@@ -31,19 +38,41 @@ const Slideshow = (props) => {
       currentSlide.value--
     }
   }
-  const goToSlide = (slide_index) => {
-    if (automatic.value) automatic.value = false
-    currentSlide.value = slide_index
-  }
+
   const chevronClick = (doCallback) => {
     if (automatic.value) automatic.value = false
     return doCallback()
   }
+
   useEffect(() => {
     setInterval(() => {
       if (automatic.value) nextSlide()
     }, SLIDE_INTERVAL)
   }, [currentSlide])
+
+  const goToSlide = (slide_index) => {
+    if (automatic.value) automatic.value = false
+    currentSlide.value = slide_index
+  }
+
+  const DotsNavigation = () => {
+    return (
+      <div class="slide_nav w-full text-white absolute bottom-0 flex justify-center cursor-pointer">
+        {media.data.map((_item, idx) => {
+          return (
+            <div
+              class="px-1"
+              onClick={() => {
+                goToSlide(idx)
+              }}
+            >
+              {idx === currentSlide.value ? <>●</> : <>○</>}
+            </div>
+          )
+        })}
+      </div>
+    )
+  }
 
   return (
     <>
@@ -80,33 +109,8 @@ const Slideshow = (props) => {
             />
           )
         })}
-        <div class="slide_nav w-full text-white absolute bottom-0 flex justify-center cursor-pointer">
-          {media.data.map((_item, idx) => {
-            if (idx === currentSlide.value) {
-              return (
-                <div
-                  class="px-1"
-                  onClick={() => {
-                    goToSlide(idx)
-                  }}
-                >
-                  ●
-                </div>
-              )
-            } else {
-              return (
-                <div
-                  class="px-1"
-                  onClick={() => {
-                    goToSlide(idx)
-                  }}
-                >
-                  ○
-                </div>
-              )
-            }
-          })}
-        </div>
+        {showNavigation &&
+          <DotsNavigation />}
       </div>
     </>
   )
