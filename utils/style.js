@@ -1,6 +1,8 @@
 import { asset } from "$fresh/runtime.ts"
 import { animation, apply, css, keyframes, theme } from "twind/css"
 
+// ${animation("300ms ease-in-out 1", fadeIn)}
+
 export const fadeIn = keyframes({
   "0%": {
     opacity: 0,
@@ -47,32 +49,20 @@ export const globalStyles = css({
         },
         marginBottom: "1rem",
       },
-      "ul li": {
-        listStyle: "disc",
-      },
-      "ol li": {
-        listStyle: "number",
-      },
+      "ul li": apply`list-disc`,
+      "ol li": apply`list-decimal`,
     },
-    "p": apply`mb-3 ${animation("300ms ease-in-out 1", fadeIn)}`,
+    "div > p": apply`mb-3`,
     body: {
       "&::before": {
+        "&": apply`d-block fixed w-full h-full -z-20 left-0 top-0`,
         content: `""`,
-        display: "block",
-        position: "fixed",
-        left: 0,
-        top: 0,
-        zIndex: -10,
-        width: "100%",
-        height: "100%",
         background: `url(${asset("/nebula.jpg")}) no-repeat center center`,
         backgroundSize: "cover",
       },
       backgroundColor: theme("colors.purple"),
     },
-    ".header-wrapper": {
-      marginTop: "1rem",
-    },
+    ".header-wrapper": apply`mt-5`,
   },
 })
 
@@ -87,16 +77,8 @@ export const homeStyles = css({
       backgroundSize: "cover",
     },
     ".tagline": apply`my-8 ${animation("1200ms ease-in 1", fadeInLast)}`,
-    ".landing-page": {
-      background: "transparent",
-      width: "100%",
-      minHeight: "100vh",
-      color: "white",
-      textAlign: "center",
-      position: "fixed",
-      zIndex: -1,
-      top: 0,
-    },
+    ".landing-page":
+      apply`fixed top-0 bg-transparent w-full text-white text-center min-h-screen -z-10`,
     "section.header-wrapper": {
       marginTop: "94vh",
     },
