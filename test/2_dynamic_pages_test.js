@@ -1,6 +1,7 @@
 import { assertEquals } from "$std/testing/asserts.ts"
 import { freshPuppetTestWrapper } from "fresh_marionette"
 import { BASE_URL, DENO_ENV } from "@/utils/config.js"
+import { Status } from "$std/http/http_status.ts"
 
 const puppet_config = DENO_ENV === "development"
   ? { headless: false, defaultViewport: null }
@@ -16,7 +17,7 @@ Deno.test(
         const response = await page.goto(`${BASE_URL}/pages`, {
           waitUntil: "networkidle2",
         })
-        assertEquals(response.status(), 200)
+        assertEquals(response.status(), Status.OK)
         // Get the list of links
         const links = await page.$$eval("#pages a", (elements) => {
           return elements.map((e) => e.href)
@@ -27,7 +28,7 @@ Deno.test(
           const response = await page.goto(page_link, {
             waitUntil: "networkidle2",
           })
-          assertEquals(response.status(), 200)
+          assertEquals(response.status(), Status.OK)
         }
       },
     )

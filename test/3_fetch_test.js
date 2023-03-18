@@ -1,6 +1,7 @@
 import { assertEquals } from "$std/testing/asserts.ts"
 import { freshTestWrapper } from "fresh_marionette"
 import { BASE_URL } from "@/utils/config.js"
+import { Status } from "$std/http/http_status.ts"
 
 Deno.test(
   "Some Testing",
@@ -13,7 +14,7 @@ Deno.test(
           return res.status
         },
       )
-      assertEquals(requestStatus, 200)
+      assertEquals(requestStatus, Status.OK)
     })
     // all done? Fresh will close gracefully
   }),
