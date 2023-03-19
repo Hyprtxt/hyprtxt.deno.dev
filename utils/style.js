@@ -11,6 +11,22 @@ export const fadeIn = keyframes({
     opacity: 1,
   },
 })
+
+export const swoopDownFadeInLast = keyframes({
+  "0%": {
+    transform: "translateY(-20px)",
+    opacity: 0,
+  },
+  "70%": {
+    transform: "translateY(-20px)",
+    opacity: 0,
+  },
+  "100%": {
+    transform: "translateY(0)",
+    opacity: 1,
+  },
+})
+
 export const fadeInLast = keyframes({
   "0%": {
     opacity: 0,
@@ -20,6 +36,18 @@ export const fadeInLast = keyframes({
   },
   "100%": {
     opacity: 1,
+  },
+})
+
+export const swoopDown = keyframes({
+  "0%": {
+    transform: "translateY(-20px)",
+  },
+  "70%": {
+    transform: "translateY(-20px)",
+  },
+  "100%": {
+    transform: "translateY(0)",
   },
 })
 
@@ -67,14 +95,16 @@ export const globalStyles = css({
 export const homeStyles = css({
   ":global": {
     ".logo": {
-      "&": apply(animation("600ms ease-in 1", fadeIn)),
+      "&": apply(animation("600ms ease-out 1", fadeIn)),
       background: `url(${asset("/hyprtxt_stack.png")}) no-repeat center center`,
       width: "300px",
       height: "304px",
       margin: "0 auto",
       backgroundSize: "cover",
     },
-    ".tagline": apply`my-8 ${animation("1200ms ease-in 1", fadeInLast)}`,
+    ".tagline": apply`my-8 ${
+      animation("1000ms ease-out 1", swoopDownFadeInLast)
+    }`,
     ".landing-page":
       apply`fixed top-0 bg-transparent w-full text-white text-center min-h-screen -z-10`,
     "section.header-wrapper": {

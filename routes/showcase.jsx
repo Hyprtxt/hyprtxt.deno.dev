@@ -9,6 +9,11 @@ export default function Showcase(props) {
     <>
       <Head>
         <title>Hyprtxt | Good Websites</title>
+        <meta name="author" content="Taylor Young" />
+        <meta
+          name="description"
+          content="Hyprtxt is Taylor's Brand. The showcase page links to examples of my work."
+        />
       </Head>
       <Layout data={props}>
         <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white markdown">
