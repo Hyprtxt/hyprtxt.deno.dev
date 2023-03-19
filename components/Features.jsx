@@ -14,7 +14,7 @@ export default function Features() {
     {
       icon: IconAirBalloon,
       description:
-        "Creative Solutions. A track record of getting things done, even when other developers say it can't be done.",
+        "Creative Solutions. A track record of getting things done, even when other developers say it can't be.",
     },
     {
       icon: IconArmchair,
