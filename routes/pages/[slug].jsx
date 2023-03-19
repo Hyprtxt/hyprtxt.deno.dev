@@ -5,6 +5,7 @@ import { stringify } from "qs"
 import { parse } from "marked"
 import Slideshow from "@/islands/Slideshow.jsx"
 import StrapiMedia from "@/components/StrapiMedia.jsx"
+import ThumbGallery from "@/islands/ThumbGallery.jsx"
 
 export const handler = {
   GET: async (_req, ctx) => {
@@ -39,6 +40,9 @@ export const handler = {
             "layout.gallery": {
               populate: "*",
             },
+            "layout.thumb-gallery": {
+              populate: "*",
+            },
             "layout.text-content": {
               populate: "*",
             },
@@ -69,7 +73,6 @@ export const handler = {
       },
     )
       .then(async (res) => await res.json())
-    // console.log(page.data?.attributes.content, "TIHSI")
     if (!page.data) {
       return ctx.renderNotFound()
     }
@@ -120,6 +123,19 @@ export default function PageIndexPage(props) {
                 {media.data.map((item, idx) => (
                   <StrapiMedia data={item} index={idx} />
                 ))}
+              </>
+            )
+          }
+          if (__component === "layout.thumb-gallery") {
+            const { title, media } = component
+            return (
+              <>
+                {title && <h1>{title}</h1>}
+                <div class="flex flex-wrap">
+                  {media.data.map((item, idx) => (
+                    <ThumbGallery data={item} index={idx} class="p-1" />
+                  ))}
+                </div>
               </>
             )
           }
