@@ -3,6 +3,7 @@ import { useSignal } from "@preact/signals"
 import { useEffect, useRef } from "preact/hooks"
 import IconChevronRight from "$icons/chevron-right.tsx"
 import IconChevronLeft from "$icons/chevron-left.tsx"
+import IconX from "$icons/x.tsx"
 import { tw } from "twind"
 import { css } from "twind/css"
 
@@ -13,7 +14,8 @@ const backdrop = css({
 })
 
 const ThumnailGallery = (props) => {
-  const { media, index } = props
+  const NAVIGATION_COLOR = `text-white`
+  const { media } = props
   const dialogRef = useRef(null)
   const currentSlide = useSignal(
     parseInt(props.currentSlide) ? props.currentSlide : 0,
@@ -32,23 +34,19 @@ const ThumnailGallery = (props) => {
   }
 
   const Image = ({ data, index }) => (
-    <>
-      <img
-        src={data.attributes.formats.thumbnail.url}
-        alt={data.attributes.alternativeText}
-        index={index}
-        class={`${props.class} cursor-pointer p-1 max-h-[90vh]`}
-        onClick={() => {
-          console.log("Move slideshow to correct image now!", index)
-          goToSlide(index)
-          return dialogRef.current.showModal()
-        }}
-      />
-    </>
+    <img
+      src={data.attributes.formats.thumbnail.url}
+      alt={data.attributes.alternativeText}
+      index={index}
+      class={`cursor-pointer p-1 max-h-[90vh] ${props.class}`}
+      onClick={() => {
+        goToSlide(index)
+        return dialogRef.current.showModal()
+      }}
+    />
   )
 
   const Slideshow = (props) => {
-    const NAVIGATION_COLOR = `text-white`
     const CHEVRON_STYLE =
       `absolute z-10 w-10 h-10 ${NAVIGATION_COLOR} cursor-pointer`
     const SHOW_NAVIGATION = props.showNavigation === false ? false : true
@@ -152,9 +150,13 @@ const ThumnailGallery = (props) => {
       })}
       <dialog
         ref={dialogRef}
-        class={tw`max-h-[90vh] max-w-[90vw] ${backdrop}`}
+        class={tw`max-h-[90vh] max-w-[90vw] overflow-visible ${backdrop}`}
         onClick={onDialogClick}
       >
+        <IconX
+          class={`cursor-pointer absolute -top-10 right-0 w-10 h-10 ${NAVIGATION_COLOR}`}
+          onClick={() => dialogRef.current.close()}
+        />
         <Slideshow
           media={media}
           automatic={false}
