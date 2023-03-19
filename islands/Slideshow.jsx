@@ -11,7 +11,9 @@ const Slideshow = (props) => {
     `absolute z-10 w-10 h-10 ${NAVIGATION_COLOR} cursor-pointer`
   const SHOW_NAVIGATION = props.showNavigation === false ? false : true
   const SLIDE_INTERVAL = parseInt(props.interval) ? props.interval : 3500
-  const currentSlide = useSignal(0)
+  const currentSlide = useSignal(
+    parseInt(props.currentSlide) ? props.currentSlide : 0,
+  )
   const automatic = useSignal(props.automatic ? true : false)
   const slideshow = useRef(null)
   const { media } = props
@@ -81,7 +83,8 @@ const Slideshow = (props) => {
     <>
       <div
         ref={slideshow}
-        class="slideshow relative flex-1 flex-end p-0 h-full w-full overflow-hidden"
+        class={`slideshow relative flex-1 flex-end p-0 overflow-hidden ${props.class}`}
+        // style="max-height: calc(100vh - 225px);"
       >
         <IconChevronLeft
           class={`top-1/2 left-0 ${CHEVRON_STYLE}`}

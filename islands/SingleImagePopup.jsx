@@ -1,6 +1,6 @@
 import { useRef } from "preact/hooks"
 
-const StrapiMedia = (props) => {
+const SingleImagePopup = (props) => {
   const { data, index } = props
   const dialogRef = useRef(null)
 
@@ -18,7 +18,7 @@ const StrapiMedia = (props) => {
         src={data.attributes.formats.thumbnail.url}
         alt={data.attributes.alternativeText}
         index={index}
-        class={props.class}
+        class={`${props.class} cursor-pointer`}
         onClick={() => {
           return dialogRef.current.showModal()
         }}
@@ -32,4 +32,4 @@ const StrapiMedia = (props) => {
   )
 }
 
-export default StrapiMedia
+export default SingleImagePopup
