@@ -12,6 +12,15 @@ export const fadeIn = keyframes({
   },
 })
 
+export const swoopDown = keyframes({
+  "0%": {
+    transform: "translateY(-20px)",
+  },
+  "100%": {
+    transform: "translateY(0)",
+  },
+})
+
 export const swoopDownFadeInLast = keyframes({
   "0%": {
     transform: "translateY(-20px)",
@@ -24,30 +33,6 @@ export const swoopDownFadeInLast = keyframes({
   "100%": {
     transform: "translateY(0)",
     opacity: 1,
-  },
-})
-
-export const fadeInLast = keyframes({
-  "0%": {
-    opacity: 0,
-  },
-  "70%": {
-    opacity: 0,
-  },
-  "100%": {
-    opacity: 1,
-  },
-})
-
-export const swoopDown = keyframes({
-  "0%": {
-    transform: "translateY(-20px)",
-  },
-  "70%": {
-    transform: "translateY(-20px)",
-  },
-  "100%": {
-    transform: "translateY(0)",
   },
 })
 

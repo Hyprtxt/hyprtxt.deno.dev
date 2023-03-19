@@ -14,7 +14,6 @@ export default function Footer({ children }) {
       title: "Community",
       children: [
         { name: "Facebook", href: "https://www.facebook.com/hyprtxt" },
-        // { name: "Discord", href: "#" },
       ],
     },
   ]
@@ -28,13 +27,13 @@ export default function Footer({ children }) {
             Hyprtxt
           </div>
         </div>
-        <div class="text-gray-500">
+        <div>
           Webmaster for Hire
         </div>
-        <div class="text-gray-500">
+        <div>
           <a href="mailto:taylor@hyprtxt.dev">taylor@hyprtxt.dev</a>
         </div>
-        <div class="text-gray-500">
+        <div>
           <a href="tel:+12147993897">+1 214 799-3897</a>{" "}
           (<a href="sms:+12147993897">sms</a>)
         </div>
@@ -47,7 +46,6 @@ export default function Footer({ children }) {
             {item.children.map((child) => (
               <li class="mt-2" key={child.name}>
                 <a
-                  class="text-gray-500 hover:text-gray-700"
                   href={child.href}
                 >
                   {child.name}
@@ -58,7 +56,7 @@ export default function Footer({ children }) {
         </div>
       ))}
 
-      <div class="text-gray-500 space-y-2">
+      <div class="space-y-2">
         <div class="text-xs">
           Copyright © Hyprtxt<br />
           Coded in Arizona.
@@ -71,6 +69,7 @@ export default function Footer({ children }) {
           <BrandGithub />
         </a>
       </div>
+      {children}
     </div>
   )
 }
