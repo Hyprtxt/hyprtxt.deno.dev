@@ -39,16 +39,13 @@ export const handler = {
         meta: "*",
         content: {
           on: {
+            "layout.markdown": {
+              populate: "*",
+            },
             "layout.gallery": {
               populate: "*",
             },
             "layout.thumb-gallery": {
-              populate: "*",
-            },
-            "layout.text-content": {
-              populate: "*",
-            },
-            "layout.markdown": {
               populate: "*",
             },
             "layout.slideshow": {
@@ -124,15 +121,6 @@ export default function PageIndexPage(props) {
       <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white markdown">
         {content.map((component) => {
           const { __component } = component
-          if (__component === "layout.text-content") {
-            const { title, content } = component
-            return (
-              <>
-                <h1>{title}</h1>
-                <div dangerouslySetInnerHTML={{ __html: parse(content) }}></div>
-              </>
-            )
-          }
           if (__component === "layout.markdown") {
             const { content } = component
             return (
