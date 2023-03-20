@@ -1,6 +1,6 @@
 import StrapiMedia from "@/components/StrapiMedia.jsx"
 import { useSignal } from "@preact/signals"
-import { useRef } from "preact/hooks"
+import { useEffect, useRef } from "preact/hooks"
 import IconChevronRight from "$icons/chevron-right.tsx"
 import IconChevronLeft from "$icons/chevron-left.tsx"
 import IconX from "$icons/x.tsx"
@@ -66,6 +66,26 @@ const ThumnailGallery = (props) => {
         currentSlide.value--
       }
     }
+
+    const ArrowKeyNavigation = () => {
+      const keydownHandler = (event) => {
+        switch (event.code) {
+          case "ArrowLeft":
+            event.preventDefault()
+            previousSlide()
+            break
+          case "ArrowRight":
+            event.preventDefault()
+            nextSlide()
+            break
+          default:
+            break
+        }
+      }
+      document.addEventListener("keydown", keydownHandler)
+      return () => document.removeEventListener("keydown", keydownHandler)
+    }
+    useEffect(ArrowKeyNavigation, [])
 
     const DotsNavigation = () => {
       return (

@@ -53,6 +53,27 @@ const Slideshow = (props) => {
     return () => clearInterval(interval)
   }, [])
 
+  const ArrowKeyNavigation = () => {
+    const keydownHandler = (event) => {
+      if (automatic.value) automatic.value = false
+      switch (event.code) {
+        case "ArrowLeft":
+          event.preventDefault()
+          previousSlide()
+          break
+        case "ArrowRight":
+          event.preventDefault()
+          nextSlide()
+          break
+        default:
+          break
+      }
+    }
+    document.addEventListener("keydown", keydownHandler)
+    return () => document.removeEventListener("keydown", keydownHandler)
+  }
+  useEffect(ArrowKeyNavigation, [])
+
   const goToSlide = (slide_index = 0) => {
     if (automatic.value) automatic.value = false
     currentSlide.value = slide_index
