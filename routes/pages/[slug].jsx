@@ -8,6 +8,7 @@ import { apply, css } from "twind/css"
 import Slideshow from "@/islands/Slideshow.jsx"
 import StrapiMedia from "@/components/StrapiMedia.jsx"
 import ThumbnailGallery from "@/islands/ThumbnailGallery.jsx"
+import Hero from "@/components/Hero.jsx"
 
 export const handler = {
   GET: async (_req, ctx) => {
@@ -51,6 +52,9 @@ export const handler = {
               populate: "*",
             },
             "layout.slideshow": {
+              populate: "*",
+            },
+            "layout.hero": {
               populate: "*",
             },
           },
@@ -166,6 +170,10 @@ export default function PageIndexPage(props) {
                 interval={4000}
               />
             )
+          }
+          if (__component === "layout.hero") {
+            // const { title, description } = component
+            return <Hero data={component} />
           }
           return <p>We couldn't find that component</p>
         })}
