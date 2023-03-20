@@ -11,7 +11,6 @@ import ThumbnailGallery from "@/islands/ThumbnailGallery.jsx"
 
 export const handler = {
   GET: async (_req, ctx) => {
-    // This query could be a lookup somehow?
     const SLUG_REG_EXP = /^[a-z0-9]+(?:-[a-z0-9]+)*$/g
     const slug = ctx.params.slug.toLowerCase()
     if (!SLUG_REG_EXP.test(slug)) {
@@ -61,7 +60,6 @@ export const handler = {
     if (!pages.data.length) {
       return ctx.renderNotFound()
     }
-    // console.log(pages, "KLJDFSLKJ")
     const page_id = parseInt(pages.data[0].id)
     if (!page_id) {
       return ctx.renderNotFound()
@@ -82,32 +80,43 @@ export const handler = {
   },
 }
 
-const breadcrumbs = css({
+const breadcrumb_style = css({
   a: apply`text-dark`,
 })
 
 export default function PageIndexPage(props) {
   const { data, url } = props
-  // console.log(data, "DAADDA")
-  const currentURL = new URL(url)
   const { meta, content } = data.page.data.attributes
   const { title, description } = meta
-  return (
-    <Layout data={props}>
-      <Head>
+  const MetaTags = () => {
+    return (
+      <>
         <title>Hyprtxt | {title}</title>
         <meta name="author" content="Taylor Young" />
         <meta
           name="description"
           content={description}
         />
-      </Head>
+      </>
+    )
+  }
+  const Breadcrumbs = () => {
+    const currentURL = new URL(url)
+    return (
       <section
-        class={tw`max-w-screen-md mx-auto pt-3 px(8) bg-white ${breadcrumbs}`}
+        class={tw`max-w-screen-md mx-auto pt-3 px(8) bg-white ${breadcrumb_style}`}
       >
         <a href="/pages">Pages</a> {">"}{" "}
         <a href={currentURL.pathname}>{title}</a>
       </section>
+    )
+  }
+  return (
+    <Layout data={props}>
+      <Head>
+        <MetaTags />
+      </Head>
+      <Breadcrumbs />
       <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white markdown">
         {content.map((component) => {
           const { __component } = component

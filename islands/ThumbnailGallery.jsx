@@ -5,11 +5,11 @@ import IconChevronRight from "$icons/chevron-right.tsx"
 import IconChevronLeft from "$icons/chevron-left.tsx"
 import IconX from "$icons/x.tsx"
 import { tw } from "twind"
-import { css } from "twind/css"
+import { css, theme } from "twind/css"
 
 const backdrop = css({
   "&::backdrop": {
-    background: "rgba(0, 0, 0, 0.5)",
+    background: theme("colors.backdrop"),
   },
 })
 
