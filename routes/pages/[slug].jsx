@@ -3,6 +3,8 @@ import { API_URL, TOKEN } from "@/utils/config.js"
 import { Head } from "$fresh/runtime.ts"
 import { stringify } from "qs"
 import { parse } from "marked"
+import { tw } from "twind"
+import { apply, css } from "twind/css"
 import Slideshow from "@/islands/Slideshow.jsx"
 import StrapiMedia from "@/components/StrapiMedia.jsx"
 import ThumbnailGallery from "@/islands/ThumbnailGallery.jsx"
@@ -80,9 +82,14 @@ export const handler = {
   },
 }
 
+const breadcrumbs = css({
+  a: apply`text-dark`,
+})
+
 export default function PageIndexPage(props) {
-  const { data } = props
+  const { data, url } = props
   // console.log(data, "DAADDA")
+  const currentURL = new URL(url)
   const { meta, content } = data.page.data.attributes
   const { title, description } = meta
   return (
@@ -95,6 +102,12 @@ export default function PageIndexPage(props) {
           content={description}
         />
       </Head>
+      <section
+        class={tw`max-w-screen-md mx-auto pt-3 px(8) bg-white ${breadcrumbs}`}
+      >
+        <a href="/pages">Pages</a> {">"}{" "}
+        <a href={currentURL.pathname}>{title}</a>
+      </section>
       <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white markdown">
         {content.map((component) => {
           const { __component } = component
