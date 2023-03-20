@@ -3,6 +3,7 @@ import Layout from "@/components/Layout.jsx"
 // import Features from "@/components/Features.jsx"
 // import { tw } from "twind"
 // import { apply, css, theme } from "twind/css"
+import IconBrandGithub from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/brand-github.tsx"
 
 export default function Showcase(props) {
   return (
@@ -28,20 +29,42 @@ export default function Showcase(props) {
           <ul class="list-disc">
             <li>
               <a target="_blank" href="https://linceo.club/">Linceo Club</a>
+              {" "}
+              <a target="_blank" href="https://github.com/Hyprtxt/linceo.club">
+                <IconBrandGithub class="w-6 h-6 inline" />
+              </a>
             </li>
             <li>
               <a target="_blank" href="https://videopoker.academy/">
                 Video Poker Academy
+              </a>{" "}
+              <a
+                target="_blank"
+                href="https://github.com/Hyprtxt/videopoker.academy"
+              >
+                <IconBrandGithub class="w-6 h-6 inline" />
               </a>
             </li>
             <li>
               <a target="_blank" href="https://fresh-strapi.deno.dev/">
                 Fresh Strapi
+              </a>{" "}
+              <a
+                target="_blank"
+                href="https://github.com/Hyprtxt/fresh-strapi.deno.dev"
+              >
+                <IconBrandGithub class="w-6 h-6 inline" />
               </a>
             </li>
             <li>
               <a target="_blank" href="https://merch.hyprtxt.dev/">
                 Custom Shopify
+              </a>{" "}
+              <a
+                target="_blank"
+                href="https://github.com/Hyprtxt/merch.hyprtxt.dev"
+              >
+                <IconBrandGithub class="w-6 h-6 inline" />
               </a>
             </li>
           </ul>
@@ -68,11 +91,23 @@ export default function Showcase(props) {
             <li>
               <a target="_blank" href="https://deno.land/x/fresh_marionette">
                 Fresh Marionette
+              </a>{" "}
+              <a
+                target="_blank"
+                href="https://github.com/Hyprtxt/fresh_marionette"
+              >
+                <IconBrandGithub class="w-6 h-6 inline" />
               </a>
             </li>
             <li>
               <a target="_blank" href="https://classic.videopoker.academy/">
                 JavaScript Video Poker
+              </a>{" "}
+              <a
+                target="_blank"
+                href="https://github.com/digitaldesigndj/javascript-video-poker"
+              >
+                <IconBrandGithub class="w-6 h-6 inline" />
               </a>
             </li>
             <li>
@@ -81,6 +116,12 @@ export default function Showcase(props) {
                 href="https://wordpress.org/themes/bootstrap-four/"
               >
                 Bootstrap Four the WordPress Theme
+              </a>{" "}
+              <a
+                target="_blank"
+                href="https://github.com/Hyprtxt/bootstrapfour"
+              >
+                <IconBrandGithub class="w-6 h-6 inline" />
               </a>
             </li>
           </ul>
