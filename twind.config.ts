@@ -4,6 +4,13 @@ import * as colors from "twind/colors"
 export default {
   selfURL: import.meta.url,
   theme: {
+    extend: {
+      transitionDuration: {
+        "0": "0ms",
+        "1600": "1600ms",
+        "2000": "2000ms",
+      },
+    },
     colors: {
       purple: "#271f3f",
       green: "#59a188",
