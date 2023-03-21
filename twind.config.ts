@@ -20,6 +20,7 @@ export default {
       blue: "rgb(0,190,211)",
       indigo: "rgb(0,153,212)",
       violet: "rgb(108, 73, 136)",
+      grey: "rgb(200,200,200)",
       dark: "rgb(15,15,15)",
       backdrop: "rgba(15,15,15,0.6)",
       white: colors.white,

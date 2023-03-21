@@ -7,12 +7,11 @@ import * as $0 from "./routes/_404.jsx"
 import * as $1 from "./routes/_500.jsx"
 import * as $2 from "./routes/_middleware.js"
 import * as $3 from "./routes/index.jsx"
-import * as $4 from "./routes/javascript.jsx"
-import * as $5 from "./routes/pages/[slug].jsx"
-import * as $6 from "./routes/pages/index.jsx"
-import * as $7 from "./routes/showcase.jsx"
-import * as $8 from "./routes/sitemap.xml.js"
-import * as $9 from "./routes/uploads/[file].js"
+import * as $4 from "./routes/pages/[slug].jsx"
+import * as $5 from "./routes/pages/index.jsx"
+import * as $6 from "./routes/showcase.jsx"
+import * as $7 from "./routes/sitemap.xml.js"
+import * as $8 from "./routes/uploads/[file].js"
 import * as $$0 from "./islands/Counter.tsx"
 import * as $$1 from "./islands/SingleImagePopup.jsx"
 import * as $$2 from "./islands/Slideshow.jsx"
@@ -24,12 +23,11 @@ const manifest = {
     "./routes/_500.jsx": $1,
     "./routes/_middleware.js": $2,
     "./routes/index.jsx": $3,
-    "./routes/javascript.jsx": $4,
-    "./routes/pages/[slug].jsx": $5,
-    "./routes/pages/index.jsx": $6,
-    "./routes/showcase.jsx": $7,
-    "./routes/sitemap.xml.js": $8,
-    "./routes/uploads/[file].js": $9,
+    "./routes/pages/[slug].jsx": $4,
+    "./routes/pages/index.jsx": $5,
+    "./routes/showcase.jsx": $6,
+    "./routes/sitemap.xml.js": $7,
+    "./routes/uploads/[file].js": $8,
   },
   islands: {
     "./islands/Counter.tsx": $$0,

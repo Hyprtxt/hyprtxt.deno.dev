@@ -1,14 +1,15 @@
 import StrapiMedia from "@/components/StrapiMedia.jsx"
 import { useSignal } from "@preact/signals"
 import { useEffect, useRef } from "preact/hooks"
-import IconChevronRight from "$icons/chevron-right.tsx"
-import IconChevronLeft from "$icons/chevron-left.tsx"
+import IconCircleChevronsRight from "$icons/circle-chevrons-right.tsx"
+import IconCircleChevronsLeft from "$icons/circle-chevrons-left.tsx"
+
 import { tw } from "twind"
 
 const Slideshow = (props) => {
   const NAVIGATION_COLOR = `text-white`
   const CHEVRON_STYLE =
-    `absolute z-10 w-10 h-10 ${NAVIGATION_COLOR} cursor-pointer`
+    `absolute z-10 w-10 h-10 hover:text-grey ${NAVIGATION_COLOR} cursor-pointer`
   const SHOW_NAVIGATION = props.showNavigation === false ? false : true
   const SLIDE_INTERVAL = parseInt(props.interval) ? props.interval : 3500
   const currentSlide = useSignal(
@@ -87,7 +88,7 @@ const Slideshow = (props) => {
         {media.data.map((_item, idx) => {
           return (
             <div
-              class="px-1"
+              class="px-1 hover:text-grey"
               onClick={() => {
                 goToSlide(idx)
               }}
@@ -107,12 +108,14 @@ const Slideshow = (props) => {
         class={`slideshow relative flex-1 flex-end p-0 overflow-hidden ${props.class}`}
         // style="max-height: calc(100vh - 225px);"
       >
-        <IconChevronLeft
-          class={`top-1/2 left-0 ${CHEVRON_STYLE}`}
+        <IconCircleChevronsLeft
+          class={`left-0 ${CHEVRON_STYLE}`}
+          style="top: calc(50% - 20px)"
           onClick={() => chevronClick(previousSlide)}
         />
-        <IconChevronRight
-          class={`top-1/2 right-0 ${CHEVRON_STYLE}`}
+        <IconCircleChevronsRight
+          class={`right-0 ${CHEVRON_STYLE}`}
+          style="top: calc(50% - 20px)"
           onClick={() => chevronClick(nextSlide)}
         />
         {media.data.map((item, idx) => (

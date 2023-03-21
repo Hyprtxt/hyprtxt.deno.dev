@@ -1,9 +1,6 @@
 import { Head } from "$fresh/runtime.ts"
 import Layout from "@/components/Layout.jsx"
-// import Features from "@/components/Features.jsx"
-// import { tw } from "twind"
-// import { apply, css, theme } from "twind/css"
-import IconBrandGithub from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/brand-github.tsx"
+import IconBrandGithub from "$icons/brand-github.tsx"
 
 export default function Showcase(props) {
   return (
@@ -13,7 +10,7 @@ export default function Showcase(props) {
         <meta name="author" content="Taylor Young" />
         <meta
           name="description"
-          content="Hyprtxt is Taylor's Brand. The showcase page links to examples of my work."
+          content="Hyprtxt is Taylor's Brand. The showcase page links to examples and sources of my work."
         />
       </Head>
       <Layout data={props}>

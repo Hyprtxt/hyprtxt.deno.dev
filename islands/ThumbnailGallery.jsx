@@ -1,8 +1,8 @@
 import StrapiMedia from "@/components/StrapiMedia.jsx"
 import { useSignal } from "@preact/signals"
 import { useEffect, useRef } from "preact/hooks"
-import IconChevronRight from "$icons/chevron-right.tsx"
-import IconChevronLeft from "$icons/chevron-left.tsx"
+import IconCircleChevronsRight from "$icons/circle-chevrons-right.tsx"
+import IconCircleChevronsLeft from "$icons/circle-chevrons-left.tsx"
 import IconX from "$icons/x.tsx"
 import { tw } from "twind"
 import { css, theme } from "twind/css"
@@ -116,12 +116,14 @@ const ThumnailGallery = (props) => {
             props.class !== undefined ? props.class : ""
           }`}
         >
-          <IconChevronLeft
-            class={`top-1/2 left-0 ${CHEVRON_STYLE}`}
+          <IconCircleChevronsLeft
+            class={`left-0 ${CHEVRON_STYLE}`}
+            style="top: calc(50% - 20px)"
             onClick={() => previousSlide()}
           />
-          <IconChevronRight
-            class={`top-1/2 right-0 ${CHEVRON_STYLE}`}
+          <IconCircleChevronsRight
+            class={`right-0 ${CHEVRON_STYLE}`}
+            style="top: calc(50% - 20px)"
             onClick={() => nextSlide()}
           />
           {media.data.map((item, idx) => (
