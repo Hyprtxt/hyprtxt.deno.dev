@@ -1,6 +1,6 @@
 // Load dotenv over Deno.env
 import { load } from "$std/dotenv/mod.ts"
-import { cleanEnv, str, url } from "envalid"
+import { cleanEnv, port, str, url } from "envalid"
 
 // Loads stuff for deno.dev
 const RAW_ENV = Object.assign(Deno.env.toObject(), await load())
@@ -10,6 +10,7 @@ const ENV = cleanEnv(RAW_ENV, {
   DENO_ENV: str({ choices: ["development", "testing", "production"] }),
   API_URL: url(),
   TOKEN: str(),
+  PORT: port(),
 })
 
 export const {
@@ -17,6 +18,7 @@ export const {
   DENO_ENV,
   API_URL,
   TOKEN,
+  PORT,
 } = ENV
 
 export default ENV
