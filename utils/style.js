@@ -22,11 +22,7 @@ export const swoopDown = keyframes({
 })
 
 export const swoopDownFadeInLast = keyframes({
-  "0%": {
-    transform: "translateY(-20px)",
-    opacity: 0,
-  },
-  "70%": {
+  "0%, 70%": {
     transform: "translateY(-20px)",
     opacity: 0,
   },

@@ -5,7 +5,6 @@ import { stringify } from "qs"
 
 export const handler = {
   GET: async (_req, ctx) => {
-    // This query could be a lookup somehow?
     const query = stringify({
       populate: {
         meta: "*",
@@ -20,13 +19,12 @@ export const handler = {
       },
     )
       .then(async (res) => await res.json())
-    // console.log(pages.data, "TLKJSDFLKj")
+    // console.log(pages.data, "PagesData")
     return ctx.render({ ...ctx.state, pages: pages.data })
   },
 }
 
 export default function Home(props) {
-  // console.log(props.data.pages, "THIOSHFPages")
   return (
     <>
       <Head>
