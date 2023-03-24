@@ -10,7 +10,7 @@ export default function Hero(props) {
     <div
       class="w-full flex px-8 h-96 justify-center items-center flex-col gap-8 bg-cover bg-center bg-no-repeat bg-gray-100 rounded-xl text-white"
       style={`background-image:linear-gradient(rgba(11,7,13, 0.3),rgba(11,7,13, 0.6)), url(${
-        asset("/nebula.jpg")
+        asset("/deno_city.jpg")
       });`}
     >
       <div class="space-y-4 text-center">

@@ -2,6 +2,8 @@ import { Head } from "$fresh/runtime.ts"
 import Layout from "@/components/Layout.jsx"
 import { API_URL, TOKEN } from "@/utils/config.js"
 import { stringify } from "qs"
+import { BREADCRUMB_STYLE } from "@/routes/pages/[slug].jsx"
+import { tw } from "twind"
 
 export const handler = {
   GET: async (_req, ctx) => {
@@ -31,6 +33,12 @@ export default function Home(props) {
         <title>Hyprtxt | Good Websites</title>
       </Head>
       <Layout data={props}>
+        <section
+          class={tw`max-w-screen-md mx-auto pt-3 px(8) bg-white ${BREADCRUMB_STYLE}`}
+        >
+          <a href="/pages">Pages</a>
+          {" >"}
+        </section>
         <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white markdown">
           <h1>
             Pages

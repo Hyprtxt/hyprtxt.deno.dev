@@ -37,8 +37,6 @@ const ThumnailGallery = (props) => {
   }
 
   const Slideshow = (props) => {
-    const CHEVRON_STYLE =
-      `absolute z-10 w-10 h-10 ${NAVIGATION_COLOR} cursor-pointer`
     const SHOW_NAVIGATION = props.showNavigation === false ? false : true
 
     const slideshow = useRef(null)
@@ -108,6 +106,8 @@ const ThumnailGallery = (props) => {
       )
     }
 
+    const CHEVRON_STYLE =
+      `absolute z-10 w-10 h-10 ${NAVIGATION_COLOR} cursor-pointer`
     return (
       <>
         <div

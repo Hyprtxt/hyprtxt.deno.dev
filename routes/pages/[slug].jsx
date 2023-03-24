@@ -81,7 +81,7 @@ export const handler = {
   },
 }
 
-const breadcrumb_style = css({
+export const BREADCRUMB_STYLE = css({
   a: apply`text-dark`,
 })
 
@@ -105,7 +105,7 @@ export default function PageIndexPage(props) {
     const currentURL = new URL(url)
     return (
       <section
-        class={tw`max-w-screen-md mx-auto pt-3 px(8) bg-white ${breadcrumb_style}`}
+        class={tw`max-w-screen-md mx-auto pt-3 px(8) bg-white ${BREADCRUMB_STYLE}`}
       >
         <a href="/pages">Pages</a> {">"}{" "}
         <a href={currentURL.pathname}>{title}</a>

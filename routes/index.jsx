@@ -3,6 +3,7 @@ import Layout from "@/components/Layout.jsx"
 import Features from "@/components/Features.jsx"
 import { tw } from "twind"
 import { homeStyles } from "@/utils/style.js"
+import GoogleMap from "@/components/GoogleMap.jsx"
 
 export default function Home(props) {
   return (
@@ -38,6 +39,12 @@ export default function Home(props) {
         </section>
         <section class="mx-auto max-w-screen-md">
           <Features />
+        </section>
+        <section class="max-w-screen-md mx-auto py-8 bg-white">
+          <div class="px-8">
+            <h2>Want to meet up?</h2>
+          </div>
+          <GoogleMap />
         </section>
       </Layout>
     </>
