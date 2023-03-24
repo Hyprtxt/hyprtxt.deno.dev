@@ -27,7 +27,7 @@ export default function Home(props) {
         </div>
       </section>
       <Layout data={props}>
-        <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white">
+        <section class="max-w-screen-md mx-auto p-8 space-y-4 bg-white">
           <h1 id="welcome">
             <a href="#welcome">Hello</a>
           </h1>
