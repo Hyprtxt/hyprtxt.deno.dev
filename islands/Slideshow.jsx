@@ -9,7 +9,7 @@ import { tw } from "twind"
 const Slideshow = (props) => {
   const NAVIGATION_COLOR = `text-white`
   const CHEVRON_STYLE =
-    `absolute z-10 w-10 h-10 hover:text-grey ${NAVIGATION_COLOR} cursor-pointer`
+    `absolute z-10 w-10 h-10 hover:text-grey-300 ${NAVIGATION_COLOR} cursor-pointer`
   const SHOW_NAVIGATION = props.showNavigation === false ? false : true
   const SLIDE_INTERVAL = parseInt(props.interval) ? props.interval : 3500
   const currentSlide = useSignal(
@@ -88,7 +88,7 @@ const Slideshow = (props) => {
         {media.data.map((_item, idx) => {
           return (
             <div
-              class="px-1 hover:text-grey"
+              class="px-1 hover:text-grey-300"
               onClick={() => {
                 goToSlide(idx)
               }}

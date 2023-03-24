@@ -7,7 +7,7 @@ const PLACE_ID = {
 
 const GoogleMap = (props) => (
   <iframe
-    class={`w-full h-80 bg-grey ${
+    class={`w-full h-80 bg-grey-100 ${
       props.class !== undefined ? props.class : ""
     }`}
     style="border:0"
