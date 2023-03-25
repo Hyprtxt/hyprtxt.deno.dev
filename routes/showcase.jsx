@@ -53,17 +53,6 @@ export default function Showcase(props) {
                 <IconBrandGithub class="w-6 h-6 inline" />
               </a>
             </li>
-            <li>
-              <a target="_blank" href="https://merch.hyprtxt.dev/">
-                Custom Shopify
-              </a>{" "}
-              <a
-                target="_blank"
-                href="https://github.com/Hyprtxt/merch.hyprtxt.dev"
-              >
-                <IconBrandGithub class="w-6 h-6 inline" />
-              </a>
-            </li>
           </ul>
           <h3>For Hire</h3>
           <ul class="list-disc">
@@ -127,6 +116,17 @@ export default function Showcase(props) {
             <li>
               <a target="_blank" href="https://taylor.wpengine.com/">
                 An old WordPress site
+              </a>
+            </li>
+            <li>
+              <a target="_blank" href="https://merch.hyprtxt.dev/">
+                Custom Shopify
+              </a>{" "}
+              <a
+                target="_blank"
+                href="https://github.com/Hyprtxt/merch.hyprtxt.dev"
+              >
+                <IconBrandGithub class="w-6 h-6 inline" />
               </a>
             </li>
           </ul>
