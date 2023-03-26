@@ -15,7 +15,9 @@ permissions:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix: 
+        os: [ubuntu-latest, windows-latest, macos-latest]
     env:
       # DENO_ENV: testing
       # BASE_URL: http://localhost:8000
