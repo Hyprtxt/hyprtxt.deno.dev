@@ -21,9 +21,18 @@ export default function Footer({ children }) {
   return (
     <div class="bg-white flex flex-col md:flex-row w-full max-w-screen-md gap-8 md:gap-16 px-8 py-8 text-sm mb-5">
       <div class="flex-1">
-        <div class="flex items-center gap-1">
-          <HyprtxtIcon clazz="h-5 w-5" />
-          <div class="font-bold text-2xl">
+        <div
+          class="flex items-center gap-1"
+          vocab="https://schema.org/"
+          typeof="Organization"
+        >
+          <span property="logo">
+            <HyprtxtIcon clazz="h-5 w-5" />
+          </span>
+          <div
+            class="font-bold text-2xl"
+            property="name"
+          >
             Hyprtxt
           </div>
         </div>
