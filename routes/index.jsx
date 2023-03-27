@@ -40,12 +40,14 @@ export default function Home(props) {
         <section class="mx-auto max-w-screen-md">
           <Features />
         </section>
-        <section class="max-w-screen-md mx-auto py-8 bg-white">
+        {
+          /* <section class="max-w-screen-md mx-auto py-8 bg-white">
           <div class="px-8">
             <h2>Want to meet up?</h2>
           </div>
           <GoogleMap />
-        </section>
+        </section> */
+        }
       </Layout>
     </>
   )

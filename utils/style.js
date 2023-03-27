@@ -64,7 +64,7 @@ export const globalStyles = css({
       "&::before": {
         "&": apply`d-block fixed w-full h-full -z-20 left-0 top-0`,
         content: `""`,
-        background: `url(${asset("/nebula.jpg")}) no-repeat center center`,
+        background: `url(${asset("/nebula.webp")}) no-repeat center center`,
         backgroundSize: "cover",
       },
       backgroundColor: theme("colors.purple"),
@@ -77,7 +77,9 @@ export const homeStyles = css({
   ":global": {
     ".logo": {
       "&": apply(animation("600ms ease-out 1", fadeIn)),
-      background: `url(${asset("/hyprtxt_stack.png")}) no-repeat center center`,
+      background: `url(${
+        asset("/hyprtxt_stack.webp")
+      }) no-repeat center center`,
       width: "300px",
       height: "304px",
       margin: "0 auto",
