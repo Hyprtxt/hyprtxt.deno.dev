@@ -13,7 +13,7 @@ const SchemaORG = () => {
         "@type": "Organization",
         "@id": "https://hyprtxt.dev/#organization",
         "url": "https://hyprtxt.dev/",
-        "name": "WordPress",
+        "name": "Hyprtxt",
         "logo": {
           "@type": "ImageObject",
           "@id": "https://hyprtxt.dev/#logo",
@@ -28,7 +28,7 @@ const SchemaORG = () => {
         "@type": "WebSite",
         "@id": "https://hyprtxt.dev/#website",
         "url": "https://hyprtxt.dev/",
-        "name": "hyprtxt.dev",
+        "name": "Hyprtxt.dev",
         "publisher": {
           "@id": "https://hyprtxt.dev/#organization",
         },
