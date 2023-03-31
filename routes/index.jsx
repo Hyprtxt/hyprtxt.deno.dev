@@ -15,7 +15,6 @@ const featureItems = [
     icon: IconAlarm,
     description:
       "Fast websites. We keep the Hyper in our HyperText Markup. Lean effective sites get to the message quickly.",
-    // link: "#",
   },
   {
     icon: IconAirBalloon,
@@ -26,7 +25,6 @@ const featureItems = [
     icon: IconArmchair,
     description:
       "Tons of Experience. We build businesses by integrating computer services together.",
-    // link: "#",
   },
 ]
 

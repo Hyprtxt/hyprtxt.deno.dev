@@ -44,7 +44,10 @@ export const globalStyles = css({
       "&": apply`mb-3`,
       a: {
         "&": apply`text-dark`,
+        "&:link": apply`text-dark`,
         "&:visited": apply`text-dark`,
+        "&:hover": apply`text-dark no-underline`,
+        "&:active": apply`text-dark`,
       },
     },
     h1: apply`text-4xl`,
