@@ -20,6 +20,7 @@ const SchemaORG = () => {
           "url": "https://hyprtxt.dev/logo.png",
         },
         "sameAs": [
+          "https://github.com/Hyprtxt",
           "https://www.facebook.com/Hyprtxt/",
           "https://twitter.com/Hyprtxt",
         ],
