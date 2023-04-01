@@ -7,16 +7,15 @@ import IconCircleChevronsLeft from "$icons/circle-chevrons-left.tsx"
 import { tw } from "twind"
 
 const Slideshow = (props) => {
-  const NAVIGATION_COLOR = `text-white`
+  const NAVIGATION_COLOR = `hover:text-grey-300 text-white`
   const CHEVRON_STYLE =
-    `absolute z-10 w-10 h-10 hover:text-grey-300 ${NAVIGATION_COLOR} cursor-pointer`
+    `absolute z-10 w-10 h-10 ${NAVIGATION_COLOR} cursor-pointer`
   const SHOW_NAVIGATION = props.showNavigation === false ? false : true
-  const SLIDE_INTERVAL = parseInt(props.interval) ? props.interval : 3500
+  const SLIDE_INTERVAL = props.interval ? props.interval : 3500
   const currentSlide = useSignal(
-    parseInt(props.currentSlide) ? props.currentSlide : 0,
+    props.currentSlide ? props.currentSlide : 0,
   )
   const automatic = useSignal(props.automatic ? true : false)
-  const slideshow = useRef(null)
   const { media } = props
 
   const slideClasses = (idx = 0) =>
@@ -25,8 +24,7 @@ const Slideshow = (props) => {
     }`
 
   const nextSlide = () => {
-    const numberSlides = slideshow.current.querySelectorAll(".slide")
-    if (numberSlides.length === currentSlide.value + 1) {
+    if (media.data.length === currentSlide.value + 1) {
       currentSlide.value = 0
     } else {
       currentSlide.value++
@@ -34,9 +32,8 @@ const Slideshow = (props) => {
   }
 
   const previousSlide = () => {
-    const numberSlides = slideshow.current.querySelectorAll(".slide")
     if (currentSlide.value === 0) {
-      currentSlide.value = numberSlides.length - 1
+      currentSlide.value = media.data.length - 1
     } else {
       currentSlide.value--
     }
@@ -80,59 +77,54 @@ const Slideshow = (props) => {
     currentSlide.value = slide_index
   }
 
-  const DotsNavigation = () => {
-    return (
-      <div
-        class={`slide_nav w-full ${NAVIGATION_COLOR} absolute bottom-0 flex justify-center cursor-pointer`}
-      >
-        {media.data.map((_item, idx) => {
-          return (
-            <div
-              class="px-1 hover:text-grey-300"
-              onClick={() => {
-                goToSlide(idx)
-              }}
-            >
-              {idx === currentSlide.value ? <>●</> : <>○</>}
-            </div>
-          )
-        })}
-      </div>
-    )
-  }
+  const DotsNavigation = () => (
+    <div
+      class={`slide_nav w-full absolute bottom-0 flex justify-center cursor-pointer`}
+    >
+      {media.data.map((_item, idx) => {
+        return (
+          <div
+            class={`px-1 ${NAVIGATION_COLOR}`}
+            onClick={() => {
+              goToSlide(idx)
+            }}
+          >
+            {idx === currentSlide.value ? <>●</> : <>○</>}
+          </div>
+        )
+      })}
+    </div>
+  )
 
   return (
-    <>
-      <div
-        ref={slideshow}
-        class={`slideshow relative flex-1 flex-end p-0 overflow-hidden ${props.class}`}
-        // style="max-height: calc(100vh - 225px);"
-      >
-        <IconCircleChevronsLeft
-          class={`left-0 ${CHEVRON_STYLE}`}
-          style="top: calc(50% - 20px)"
-          onClick={() => chevronClick(previousSlide)}
-        />
-        <IconCircleChevronsRight
-          class={`right-0 ${CHEVRON_STYLE}`}
-          style="top: calc(50% - 20px)"
-          onClick={() => chevronClick(nextSlide)}
-        />
-        {media.data.map((item, idx) => (
-          <StrapiMedia
-            data={item}
-            index={idx}
-            class={slideClasses(idx)}
-          />
-        ))}
-        {SHOW_NAVIGATION &&
-          <DotsNavigation />}
+    <div
+      class={`slideshow relative flex-1 flex-end p-0 overflow-hidden ${props.class}`}
+      // style="max-height: calc(100vh - 225px);"
+    >
+      <IconCircleChevronsLeft
+        class={`left-0 ${CHEVRON_STYLE}`}
+        style="top: calc(50% - 20px)"
+        onClick={() => chevronClick(previousSlide)}
+      />
+      <IconCircleChevronsRight
+        class={`right-0 ${CHEVRON_STYLE}`}
+        style="top: calc(50% - 20px)"
+        onClick={() => chevronClick(nextSlide)}
+      />
+      {media.data.map((item, idx) => (
         <StrapiMedia
-          data={media.data[0]}
-          class="opacity-0 pointer-events-none"
+          data={item}
+          index={idx}
+          class={slideClasses(idx)}
         />
-      </div>
-    </>
+      ))}
+      {SHOW_NAVIGATION &&
+        <DotsNavigation />}
+      <StrapiMedia
+        data={media.data[0]}
+        class="opacity-0 pointer-events-none"
+      />
+    </div>
   )
 }
 
