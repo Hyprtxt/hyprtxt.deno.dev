@@ -1,7 +1,7 @@
 import Header from "@/components/Header.jsx"
 import Footer from "@/components/Footer.jsx"
 import { tw } from "twind"
-import { DENO_ENV } from "@/utils/config.js"
+import { DENO_ENV, GTM_ID } from "@/utils/config.js"
 import { globalStyles } from "@/utils/style.js"
 import { Head } from "$fresh/runtime.ts"
 
@@ -45,10 +45,24 @@ const SchemaORG = () => {
   )
 }
 
+const GoogleAnalytics = ({ GTM_ID }) => (
+  <>
+    <script
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID}`}
+    >
+    </script>
+    <script>
+      {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${GTM_ID}');`}
+    </script>
+  </>
+)
+
 const Layout = ({ children, data = {} }) => (
   <>
     <Head>
       <SchemaORG />
+      {DENO_ENV === "production" ? <GoogleAnalytics GTM_ID={GTM_ID} /> : <></>}
     </Head>
     <div class={tw`${globalStyles}`}></div>
     <section class={tw`flex justify-center header-wrapper`}>

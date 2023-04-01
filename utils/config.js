@@ -12,6 +12,7 @@ const ENV = cleanEnv(RAW_ENV, {
   TOKEN: str(),
   GOOGLE_MAPS_API_KEY: str(),
   PORT: port(),
+  GTM_ID: str(),
 })
 
 export const {
@@ -21,6 +22,7 @@ export const {
   TOKEN,
   GOOGLE_MAPS_API_KEY,
   PORT,
+  GTM_ID,
 } = ENV
 
 export default ENV
