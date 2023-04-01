@@ -20,7 +20,7 @@ export default function Header({ active }) {
             <a
               href={menu.href}
               class={"text-gray-500 hover:text-gray-700 py-1 border-gray-500" +
-                (menu.href === active ? " font-bold border-b-2" : "")}
+                (menu.href === active ? " font-bold" : "")}
             >
               {menu.name}
             </a>

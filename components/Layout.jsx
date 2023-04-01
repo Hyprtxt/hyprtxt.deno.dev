@@ -52,7 +52,7 @@ const Layout = ({ children, data = {} }) => (
     </Head>
     <div class={tw`${globalStyles}`}></div>
     <section class={tw`flex justify-center header-wrapper`}>
-      <Header />
+      <Header active={data.route} />
     </section>
     {children}
     <section class={tw`flex justify-center`}>
