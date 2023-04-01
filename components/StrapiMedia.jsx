@@ -1,9 +1,10 @@
 const StrapiMedia = (props) => {
-  const { data, index } = props
+  const { data, key } = props
   const sizes = ["thumbnail", "small", "medium", "large"]
   if (!data) {
     return <></>
   }
+  if (props.class === undefined) props.class = ""
   const sources = sizes.reduce(
     (acc, current) => {
       const thing = data.attributes.formats[current]
@@ -20,7 +21,7 @@ const StrapiMedia = (props) => {
       src={data.attributes.formats.thumbnail.url}
       srcset={sources.join(" ,")}
       alt={data.attributes.alternativeText}
-      index={index}
+      key={key}
       class={props.class}
     />
   )

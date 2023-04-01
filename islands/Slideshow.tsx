@@ -1,22 +1,35 @@
 import StrapiMedia from "@/components/StrapiMedia.jsx"
 import { useSignal } from "@preact/signals"
-import { useEffect, useRef } from "preact/hooks"
+import { useEffect } from "preact/hooks"
 import IconCircleChevronsRight from "$icons/circle-chevrons-right.tsx"
 import IconCircleChevronsLeft from "$icons/circle-chevrons-left.tsx"
-
 import { tw } from "twind"
 
-const Slideshow = (props) => {
+type SlideshowProps = {
+  showNavigation?: boolean
+  interval?: number
+  currentSlide?: number
+  automatic?: boolean
+  class?: string
+  media: {
+    data: []
+  }
+}
+
+const Slideshow = (props: SlideshowProps) => {
   const NAVIGATION_COLOR = `hover:text-grey-300 text-white`
   const CHEVRON_STYLE =
     `absolute z-10 w-10 h-10 ${NAVIGATION_COLOR} cursor-pointer`
   const SHOW_NAVIGATION = props.showNavigation === false ? false : true
   const SLIDE_INTERVAL = props.interval ? props.interval : 3500
+  const { media } = props
+  const SLIDES = media.data
+  if (props.class === undefined) props.class = ""
+
   const currentSlide = useSignal(
     props.currentSlide ? props.currentSlide : 0,
   )
   const automatic = useSignal(props.automatic ? true : false)
-  const { media } = props
 
   const slideClasses = (idx = 0) =>
     tw`slide absolute top-0 left-0 transition-all ease-in-out duration-700 transform ${
@@ -24,7 +37,7 @@ const Slideshow = (props) => {
     }`
 
   const nextSlide = () => {
-    if (media.data.length === currentSlide.value + 1) {
+    if (SLIDES.length === currentSlide.value + 1) {
       currentSlide.value = 0
     } else {
       currentSlide.value++
@@ -33,7 +46,7 @@ const Slideshow = (props) => {
 
   const previousSlide = () => {
     if (currentSlide.value === 0) {
-      currentSlide.value = media.data.length - 1
+      currentSlide.value = SLIDES.length - 1
     } else {
       currentSlide.value--
     }
@@ -52,7 +65,7 @@ const Slideshow = (props) => {
   }, [])
 
   const ArrowKeyNavigation = () => {
-    const keydownHandler = (event) => {
+    const keydownHandler = (event: KeyboardEvent) => {
       if (automatic.value) automatic.value = false
       switch (event.code) {
         case "ArrowLeft":
@@ -81,13 +94,14 @@ const Slideshow = (props) => {
     <div
       class={`slide_nav w-full absolute bottom-0 flex justify-center cursor-pointer`}
     >
-      {media.data.map((_item, idx) => {
+      {SLIDES.map((_item, idx) => {
         return (
           <div
             class={`px-1 ${NAVIGATION_COLOR}`}
             onClick={() => {
               goToSlide(idx)
             }}
+            key={idx}
           >
             {idx === currentSlide.value ? <>●</> : <>○</>}
           </div>
@@ -99,7 +113,6 @@ const Slideshow = (props) => {
   return (
     <div
       class={`slideshow relative flex-1 flex-end p-0 overflow-hidden ${props.class}`}
-      // style="max-height: calc(100vh - 225px);"
     >
       <IconCircleChevronsLeft
         class={`left-0 ${CHEVRON_STYLE}`}
@@ -111,17 +124,17 @@ const Slideshow = (props) => {
         style="top: calc(50% - 20px)"
         onClick={() => chevronClick(nextSlide)}
       />
-      {media.data.map((item, idx) => (
+      {SLIDES.map((item, idx) => (
         <StrapiMedia
           data={item}
-          index={idx}
+          key={idx}
           class={slideClasses(idx)}
         />
       ))}
       {SHOW_NAVIGATION &&
         <DotsNavigation />}
       <StrapiMedia
-        data={media.data[0]}
+        data={SLIDES[0]}
         class="opacity-0 pointer-events-none"
       />
     </div>
