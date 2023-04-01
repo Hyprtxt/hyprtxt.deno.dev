@@ -23,7 +23,7 @@ const Slideshow = (props: SlideshowProps) => {
   const SHOW_NAVIGATION = props.showNavigation === false ? false : true
   const SLIDE_INTERVAL = props.interval ? props.interval : 3500
   const { media } = props
-  const SLIDES = media.data
+  const SLIDES: { id: number; attributes: any }[] = media.data
   if (props.class === undefined) props.class = ""
 
   const currentSlide = useSignal(

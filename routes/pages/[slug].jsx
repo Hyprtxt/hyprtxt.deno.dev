@@ -7,7 +7,7 @@ import { tw } from "twind"
 import { apply, css } from "twind/css"
 import Slideshow from "@/islands/Slideshow.tsx"
 import StrapiMedia from "@/components/StrapiMedia.jsx"
-import ThumbnailGallery from "@/islands/ThumbnailGallery.jsx"
+import ThumbnailGallery from "@/islands/ThumbnailGallery.tsx"
 import Hero from "@/components/Hero.jsx"
 
 export const handler = {
