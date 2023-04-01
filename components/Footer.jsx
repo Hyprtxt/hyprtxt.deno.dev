@@ -1,7 +1,7 @@
 import HyprtxtIcon from "@/components/HyprtxtIcon.jsx"
 import BrandGithub from "$icons/brand-github.tsx"
 
-export default function Footer({ children }) {
+export default function Footer({ children, active }) {
   const menus = [
     {
       title: "Pages",
@@ -56,6 +56,7 @@ export default function Footer({ children }) {
               <li class="mt-2" key={child.name}>
                 <a
                   href={child.href}
+                  class={child.href === active ? " font-bold" : ""}
                 >
                   {child.name}
                 </a>

@@ -70,7 +70,7 @@ const Layout = ({ children, data = {} }) => (
     </section>
     {children}
     <section class={tw`flex justify-center`}>
-      <Footer />
+      <Footer active={data.route} />
     </section>
     {DENO_ENV === "development"
       ? (
