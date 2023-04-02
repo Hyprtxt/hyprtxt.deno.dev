@@ -13,6 +13,7 @@ export default function Footer({ children, active }) {
     {
       title: "Community",
       children: [
+        { name: "GitHub", href: "https://github.com/hyprtxt" },
         { name: "Facebook", href: "https://www.facebook.com/hyprtxt" },
       ],
     },
