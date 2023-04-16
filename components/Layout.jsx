@@ -29,7 +29,7 @@ const SchemaORG = () => {
         "@type": "WebSite",
         "@id": "https://hyprtxt.dev/#website",
         "url": "https://hyprtxt.dev/",
-        "name": "Hyprtxt.dev",
+        "name": "Hyprtxt",
         "publisher": {
           "@id": "https://hyprtxt.dev/#organization",
         },
