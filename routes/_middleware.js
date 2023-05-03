@@ -9,7 +9,8 @@ export async function handler(req, ctx) {
   const { pathname } = new URL(req.url)
   const withSession = [
     "/",
-    // "/pages",
+    "/showcase",
+    "/pages",
   ]
   if (
     withSession.includes(pathname) ||
@@ -18,6 +19,16 @@ export async function handler(req, ctx) {
     ctx.API_URL = API_URL
     ctx.BASE_URL = BASE_URL
     ctx.DENO_ENV = DENO_ENV
+    const kv = await Deno.openKv()
+    const key = ["hits"]
+    await kv.atomic().mutate({
+      type: "sum",
+      key,
+      value: new Deno.KvU64(1n),
+    }).commit()
+    const v = await kv.get(key)
+    ctx.hits = v.value.value
+
     // ctx.store = store
     // resp = await setupSession(req, ctx)
   }

@@ -1,7 +1,7 @@
 import HyprtxtIcon from "@/components/HyprtxtIcon.jsx"
 import BrandGithub from "$icons/brand-github.tsx"
 
-export default function Footer({ children, active }) {
+export default function Footer({ children, active, hits = 0 }) {
   const menus = [
     {
       title: "Pages",
@@ -69,6 +69,14 @@ export default function Footer({ children, active }) {
 
       <div class="space-y-2">
         <div class="text-xs">
+          {hits > 0
+            ? (
+              <>
+                Hits: {hits}
+                <br />
+              </>
+            )
+            : <></>}
           Copyright © Hyprtxt<br />
           Coded in Arizona.
         </div>

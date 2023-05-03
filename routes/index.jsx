@@ -10,6 +10,12 @@ import IconAlarm from "$icons/alarm.tsx"
 import IconAirBalloon from "$icons/air-balloon.tsx"
 import IconArmchair from "$icons/armchair.tsx"
 
+export const handler = {
+  GET: (_req, ctx) => {
+    return ctx.render({ ...ctx.state, hits: parseInt(ctx.hits) })
+  },
+}
+
 const featureItems = [
   {
     icon: IconAlarm,

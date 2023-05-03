@@ -22,7 +22,11 @@ export const handler = {
     )
       .then(async (res) => await res.json())
     // console.log(pages.data, "PagesData")
-    return ctx.render({ ...ctx.state, pages: pages.data })
+    return ctx.render({
+      ...ctx.state,
+      pages: pages.data,
+      hits: parseInt(ctx.hits),
+    })
   },
 }
 
