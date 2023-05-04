@@ -59,17 +59,6 @@ export default function Showcase(props) {
                 <IconBrandGithub class="w-6 h-6 inline" />
               </a>
             </li>
-            <li>
-              <a target="_blank" href="https://sushij.express/">
-                Sushi J Express
-              </a>{" "}
-              <a
-                target="_blank"
-                href="https://github.com/Hyprtxt/sushij.express"
-              >
-                <IconBrandGithub class="w-6 h-6 inline" />
-              </a>
-            </li>
           </ul>
           <h3>For Hire</h3>
           <ul class="list-disc">
