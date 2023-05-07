@@ -77,7 +77,7 @@ export const handler = {
     if (!page.data) {
       return ctx.renderNotFound()
     }
-    return ctx.render({ ...ctx.state, page, hits: parseInt(ctx.hits) })
+    return ctx.render({ ...ctx.state, page, hits: ctx.hits })
   },
 }
 

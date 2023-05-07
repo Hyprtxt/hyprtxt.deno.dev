@@ -25,7 +25,7 @@ export const handler = {
     return ctx.render({
       ...ctx.state,
       pages: pages.data,
-      hits: parseInt(ctx.hits),
+      hits: ctx.hits,
     })
   },
 }

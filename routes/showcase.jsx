@@ -4,7 +4,7 @@ import IconBrandGithub from "$icons/brand-github.tsx"
 
 export const handler = {
   GET: (_req, ctx) => {
-    return ctx.render({ ...ctx.state, hits: parseInt(ctx.hits) })
+    return ctx.render({ ...ctx.state, hits: ctx.hits })
   },
 }
 

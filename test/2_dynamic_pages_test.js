@@ -1,5 +1,5 @@
 import { assertEquals } from "$std/testing/asserts.ts"
-import { freshPuppetTestWrapper } from "fresh_marionette"
+import { freshPuppetTestWrapper } from "@/test/wrapper.js"
 import { BASE_URL, DENO_ENV } from "@/utils/config.js"
 import { Status } from "$std/http/http_status.ts"
 
