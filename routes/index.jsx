@@ -67,8 +67,7 @@ export default function Home(props) {
           content="Hyprtxt is Taylor's Brand. Webmaster for hire. Based in Prescott, AZ. Click on in!"
         />
       </Head>
-      <div class={tw`${homeStyles}`}></div>
-      <section class="landing-page">
+      <section class={tw`landing-page ${homeStyles}`}>
         <div class="mx-auto">
           <p class="my-8">Welcome 👋</p>
           <div class="logo"></div>
