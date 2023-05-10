@@ -64,8 +64,7 @@ const Layout = ({ children, data = {} }) => (
       <SchemaORG />
       {DENO_ENV === "production" ? <GoogleAnalytics GTM_ID={GTM_ID} /> : <></>}
     </Head>
-    <div class={tw`${globalStyles}`}></div>
-    <section class={tw`flex justify-center header-wrapper`}>
+    <section class={tw`${globalStyles} flex justify-center header-wrapper`}>
       <Header active={data.route} />
     </section>
     {children}
