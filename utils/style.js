@@ -73,13 +73,13 @@ export const globalStyles = css({
       backgroundColor: theme("colors.purple"),
     },
     ".header-wrapper": apply`mt-5`,
+    ".logo-gradient":
+      apply`bg-clip-text text-transparent bg-gradient-to-b from-purple via-purple to-green`,
   },
 })
 
 export const homeStyles = css({
   ":global": {
-    ".logo-gradient":
-      apply`bg-clip-text text-transparent bg-gradient-to-b from-purple via-purple to-green`,
     ".logo": {
       "&": apply(animation("600ms ease-out 1", fadeIn)),
       background: `url(${
