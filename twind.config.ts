@@ -25,6 +25,7 @@ export default {
       backdrop: "rgba(15,15,15,0.6)",
       white: colors.white,
       black: colors.black,
+      transparent: "rgba(0,0,0,0)",
     },
   },
 } as Options
