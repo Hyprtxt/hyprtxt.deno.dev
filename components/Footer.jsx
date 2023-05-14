@@ -31,7 +31,7 @@ export default function Footer({ children, active, hits = 0 }) {
             <HyprtxtIcon clazz="h-5 w-5" />
           </span>
           <div
-            class="font-bold text-2xl"
+            class="font-bold text-2xl logo-gradient"
             property="name"
           >
             Hyprtxt

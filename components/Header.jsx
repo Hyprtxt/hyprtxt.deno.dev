@@ -11,7 +11,7 @@ export default function Header({ active }) {
     <header class="bg-white w-full max-w-screen-md py-6 px-8 flex flex-col md:flex-row gap-4">
       <div class="flex items-center flex-1">
         <HyprtxtIcon />
-        <div class="text-2xl ml-1 font-bold bg-clip-text text-transparent bg-gradient-to-b from-purple via-purple to-green">
+        <div class="text-2xl ml-1 font-bold logo-gradient">
           Hyprtxt
         </div>
       </div>

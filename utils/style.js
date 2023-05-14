@@ -78,6 +78,8 @@ export const globalStyles = css({
 
 export const homeStyles = css({
   ":global": {
+    ".logo-gradient":
+      apply`bg-clip-text text-transparent bg-gradient-to-b from-purple via-purple to-green`,
     ".logo": {
       "&": apply(animation("600ms ease-out 1", fadeIn)),
       background: `url(${
