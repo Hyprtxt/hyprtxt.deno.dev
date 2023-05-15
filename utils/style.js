@@ -61,6 +61,8 @@ export const globalStyles = css({
       },
       "ul li": apply`list-disc`,
       "ol li": apply`list-decimal`,
+      "pre": apply`bg-grey-200 p-2`,
+      "code": apply`bg-grey-200`,
     },
     "div > p": apply`mb-3`,
     body: {
