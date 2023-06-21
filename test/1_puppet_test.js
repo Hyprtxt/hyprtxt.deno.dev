@@ -1,36 +1,66 @@
 import { assertEquals } from "$std/testing/asserts.ts"
-import { freshPuppetTestWrapper } from "@/test/wrapper.js"
 import { BASE_URL, DENO_ENV } from "@/utils/config.js"
 import { Status } from "$std/http/http_status.ts"
+import { delay } from "$std/async/delay.ts"
+import { startFreshServer } from "$fresh/tests/test_utils.ts"
+import { freshPuppetTestWrapper } from "@/test/wrapper.ts"
 
-const puppet_config = DENO_ENV === "development"
-  ? { headless: false, defaultViewport: null }
-  : { headless: true }
+Deno.test("The homepage should work (200)", {
+  sanitizeResources: false,
+}, async () => {
+  const { serverProcess, lines } = await startFreshServer({
+    args: ["run", "-A", "--unstable", "./main.ts"],
+  })
+
+  const requestStatus = await fetch(`${BASE_URL}`).then(
+    async (res) => {
+      await res.text()
+      return res.status
+    },
+  )
+  assertEquals(requestStatus, Status.OK)
+
+  await lines.cancel()
+  serverProcess.kill("SIGTERM")
+  // await for the server to close
+  await delay(100)
+})
 
 Deno.test(
-  "Public Pages Testing",
-  freshPuppetTestWrapper(puppet_config, async (t, page) => {
-    await t.step("The homepage should work", async () => {
-      const response = await page.goto(`${BASE_URL}`, {
-        waitUntil: "networkidle2",
-      })
-      assertEquals(response.status(), Status.OK)
+  "The homepage should work puppeteer (200)",
+  {
+    sanitizeResources: false,
+  },
+  freshPuppetTestWrapper(async (t, page) => {
+    const response = await page.goto(`${BASE_URL}`, {
+      waitUntil: "networkidle2",
     })
+    assertEquals(response.status(), Status.OK)
+  }),
+)
 
-    await t.step("The showcase should work", async () => {
-      const response = await page.goto(`${BASE_URL}/showcase`, {
-        waitUntil: "networkidle2",
-      })
-      assertEquals(response.status(), Status.OK)
+Deno.test(
+  "The showcase should work",
+  {
+    sanitizeResources: false,
+  },
+  freshPuppetTestWrapper(async (t, page) => {
+    const response = await page.goto(`${BASE_URL}/showcase`, {
+      waitUntil: "networkidle2",
     })
+    assertEquals(response.status(), Status.OK)
+  }),
+)
 
-    await t.step("The 404 page should 404", async () => {
-      const response = await page.goto(`${BASE_URL}/404`, {
-        waitUntil: "networkidle2",
-      })
-      assertEquals(response.status(), Status.NotFound)
+Deno.test(
+  "The 404 page should 404",
+  {
+    sanitizeResources: false,
+  },
+  freshPuppetTestWrapper(async (t, page) => {
+    const response = await page.goto(`${BASE_URL}/404`, {
+      waitUntil: "networkidle2",
     })
-
-    // More steps?
+    assertEquals(response.status(), Status.NotFound)
   }),
 )

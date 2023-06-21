@@ -1,15 +1,15 @@
 import { assertEquals } from "$std/testing/asserts.ts"
-import { freshPuppetTestWrapper } from "@/test/wrapper.js"
-import { BASE_URL, DENO_ENV } from "@/utils/config.js"
+import { freshPuppetTestWrapper } from "@/test/wrapper.ts"
+import { BASE_URL } from "@/utils/config.js"
 import { Status } from "$std/http/http_status.ts"
-
-const puppet_config = DENO_ENV === "development"
-  ? { headless: false, defaultViewport: null }
-  : { headless: true }
 
 Deno.test(
   "Dynamic Pages Testing",
-  freshPuppetTestWrapper(puppet_config, async (t, page) => {
+  {
+    sanitizeResources: false,
+    sanitizeOps: false,
+  },
+  freshPuppetTestWrapper(async (t, page) => {
     await t.step(
       "The pages index and all linked pages should work",
       async () => {
