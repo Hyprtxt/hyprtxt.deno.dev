@@ -5,27 +5,6 @@ import { delay } from "$std/async/delay.ts"
 import { startFreshServer } from "$fresh/tests/test_utils.ts"
 import { freshPuppetTestWrapper } from "@/test/wrapper.ts"
 
-Deno.test("The homepage should work (200)", {
-  sanitizeResources: false,
-}, async () => {
-  const { serverProcess, lines } = await startFreshServer({
-    args: ["run", "-A", "--unstable", "./main.ts"],
-  })
-
-  const requestStatus = await fetch(`${BASE_URL}`).then(
-    async (res) => {
-      await res.text()
-      return res.status
-    },
-  )
-  assertEquals(requestStatus, Status.OK)
-
-  await lines.cancel()
-  serverProcess.kill("SIGTERM")
-  // await for the server to close
-  await delay(100)
-})
-
 Deno.test(
   "The homepage should work puppeteer (200)",
   {
