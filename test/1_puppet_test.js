@@ -1,8 +1,6 @@
 import { assertEquals } from "$std/testing/asserts.ts"
-import { BASE_URL, DENO_ENV } from "@/utils/config.js"
+import { BASE_URL } from "@/utils/config.js"
 import { Status } from "$std/http/http_status.ts"
-import { delay } from "$std/async/delay.ts"
-import { startFreshServer } from "$fresh/tests/test_utils.ts"
 import { freshPuppetTestWrapper } from "@/test/wrapper.ts"
 
 Deno.test(

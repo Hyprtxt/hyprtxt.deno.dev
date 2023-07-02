@@ -3,7 +3,7 @@ import { assertEquals } from "$std/testing/asserts.ts"
 import { delay } from "$std/async/delay.ts"
 import { startFreshServer } from "$fresh/tests/test_utils.ts"
 import { BASE_URL, DENO_ENV } from "@/utils/config.js"
-import puppeteer from "https://deno.land/x/puppeteer@16.2.0/mod.ts"
+import puppeteer from "puppeteer"
 
 const puppet_config = DENO_ENV === "development"
   ? { headless: false, defaultViewport: null }
