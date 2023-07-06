@@ -68,7 +68,7 @@ const Layout = ({ children, data = {} }) => (
       <Header active={data.route} />
     </section>
     {children}
-    <section class={tw`flex justify-center`}>
+    <section class={`flex justify-center`}>
       <Footer hits={data?.data?.hits} />
     </section>
     {DENO_ENV === "development"
