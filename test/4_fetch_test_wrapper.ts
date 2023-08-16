@@ -3,6 +3,7 @@ import { startFreshServer } from "$fresh/tests/test_utils.ts"
 import { BASE_URL } from "@/utils/config.js"
 import { assert, assertEquals } from "$std/assert/mod.ts"
 import { Status } from "$std/http/http_status.ts"
+import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts"
 
 const myTestWrapper =
   (args: string[]) => (theTests: any) => async (t: Deno.TestContext) => {
@@ -31,11 +32,19 @@ Deno.test(
     sanitizeOps: false,
   },
   fetchTestWrapper(async (t: Deno.TestContext) => {
-    await t.step("The index page returns a 200 and a 'Welcome'", async () => {
-      const response = await fetch(`${BASE_URL}`)
-      assertEquals(response.status, Status.OK)
-      const text = await response.text()
-      assert(text.includes("Welcome"))
-    })
+    await t.step(
+      "The index page returns 200, a 'Welcome', HTML Document, and more",
+      async () => {
+        const response = await fetch(`${BASE_URL}`)
+        assertEquals(response.status, Status.OK)
+        const text = await response.text()
+        assert(text.includes("Welcome"))
+        const document = new DOMParser().parseFromString(text, "text/html")
+        assert(document)
+        const h1 = document.querySelector("h1")
+        assert(h1)
+        assertEquals(h1.textContent, "Hello")
+      },
+    )
   }),
 )

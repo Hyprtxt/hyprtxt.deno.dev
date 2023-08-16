@@ -4,7 +4,7 @@
     "run": "DENO_DEPLOYMENT_ID=$(git rev-parse --short HEAD) deno run -A --unstable main.ts",
     "test": "deno test -A --unstable",
     "build": "deno run -A dev.ts build",
-    "preview": "deno run -A main.ts"
+    "preview": "deno run -A --unstable main.ts"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
