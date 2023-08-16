@@ -18,7 +18,7 @@
     "@/": "./",
     "$fresh/": "https://deno.land/x/fresh@1.4.1/",
     "$std/": "https://deno.land/std@0.198.0/",
-    "$icons/": "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/",
+    "$icons/": "https://deno.land/x/tabler_icons_tsx@0.0.4/tsx/",
     "fresh_seo": "https://deno.land/x/fresh_seo@0.2.1/mod.ts",
     "fresh_marionette": "https://deno.land/x/fresh_marionette@v2.0.1/mod.js",
     "preact": "https://esm.sh/preact@10.15.1",
