@@ -16,9 +16,9 @@ export async function handler(req, ctx) {
     withSession.includes(pathname) ||
     pathname.startsWith("/pages/")
   ) {
-    ctx.API_URL = API_URL
-    ctx.BASE_URL = BASE_URL
-    ctx.DENO_ENV = DENO_ENV
+    // ctx.API_URL = API_URL
+    // ctx.BASE_URL = BASE_URL
+    // ctx.DENO_ENV = DENO_ENV
     const kv = await Deno.openKv()
     const key = ["hits"]
     await kv.atomic().mutate({
@@ -27,7 +27,7 @@ export async function handler(req, ctx) {
       value: new Deno.KvU64(1n),
     }).commit()
     const v = await kv.get(key)
-    ctx.hits = parseInt(v.value.value)
+    ctx.state.hits = parseInt(v.value.value)
 
     // ctx.store = store
     // resp = await setupSession(req, ctx)
