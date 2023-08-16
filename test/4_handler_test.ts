@@ -30,17 +30,17 @@ export const fixtureTestWrapper = myTestWrapper([
 // const fetch = wrapFetch();
 
 Deno.test(
-  "The Dashboard should show a new login",
+  "The index page works",
   {
     sanitizeResources: false,
     sanitizeOps: false,
   },
   fixtureTestWrapper(async (t: any) => {
-    await t.step("The dashboard shows nothing", async () => {
+    await t.step("The index page returns a 200 and 'Welcome'", async () => {
       const response = await fetch(`${BASE_URL}`)
       assertEquals(response.status, Status.OK)
       const text = await response.text()
-      assert(!text.includes("<div>Flashed message: test</div>"))
+      assert(text.includes("Welcome"))
     })
   }),
 )
