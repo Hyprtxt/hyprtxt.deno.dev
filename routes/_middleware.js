@@ -1,8 +1,6 @@
 // routes/_middleware.js
 import { blue, cyan, green, magenta, red, yellow } from "$std/fmt/colors.ts"
 
-import { API_URL, BASE_URL, DENO_ENV } from "@/utils/config.js"
-
 export async function handler(req, ctx) {
   // For Logging
   const start = Date.now()
@@ -16,9 +14,7 @@ export async function handler(req, ctx) {
     withSession.includes(pathname) ||
     pathname.startsWith("/pages/")
   ) {
-    // ctx.API_URL = API_URL
-    // ctx.BASE_URL = BASE_URL
-    // ctx.DENO_ENV = DENO_ENV
+    // Hit Counter
     const kv = await Deno.openKv()
     const key = ["hits"]
     await kv.atomic().mutate({
@@ -28,9 +24,6 @@ export async function handler(req, ctx) {
     }).commit()
     const v = await kv.get(key)
     ctx.state.hits = parseInt(v.value.value)
-
-    // ctx.store = store
-    // resp = await setupSession(req, ctx)
   }
   const resp = await ctx.next()
   const now = Date.now()
