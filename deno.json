@@ -11,12 +11,15 @@
     "jsxImportSource": "preact"
   },
   "fmt": {
-    "semiColons": false
+    "semiColons": false,
+    "exclude": [
+      "_fresh"
+    ]
   },
   "lock": false,
   "imports": {
     "@/": "./",
-    "$fresh/": "https://deno.land/x/fresh@1.4.1/",
+    "$fresh/": "https://deno.land/x/fresh@1.4.2/",
     "$std/": "https://deno.land/std@0.198.0/",
     "$icons/": "https://deno.land/x/tabler_icons_tsx@0.0.4/tsx/",
     "fresh_seo": "https://deno.land/x/fresh_seo@0.2.1/mod.ts",
@@ -39,6 +42,9 @@
         "fresh",
         "recommended"
       ]
-    }
+    },
+    "exclude": [
+      "_fresh"
+    ]
   }
 }
