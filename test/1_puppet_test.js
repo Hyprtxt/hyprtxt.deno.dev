@@ -7,6 +7,7 @@ Deno.test(
   "The homepage should work puppeteer (200)",
   {
     sanitizeResources: false,
+    sanitizeOps: false,
   },
   freshPuppetTestWrapper(async (t, page) => {
     const response = await page.goto(`${BASE_URL}`, {
@@ -20,6 +21,7 @@ Deno.test(
   "The showcase should work",
   {
     sanitizeResources: false,
+    sanitizeOps: false,
   },
   freshPuppetTestWrapper(async (t, page) => {
     const response = await page.goto(`${BASE_URL}/showcase`, {
@@ -33,6 +35,7 @@ Deno.test(
   "The 404 page should 404",
   {
     sanitizeResources: false,
+    sanitizeOps: false,
   },
   freshPuppetTestWrapper(async (t, page) => {
     const response = await page.goto(`${BASE_URL}/404`, {
