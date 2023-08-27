@@ -7,7 +7,7 @@ const RAW_ENV = Object.assign(Deno.env.toObject(), await load())
 
 const ENV = cleanEnv(RAW_ENV, {
   BASE_URL: url(),
-  DENO_ENV: str({ choices: ["development", "testing", "production"] }),
+  CURRENT_ENV: str({ choices: ["development", "testing", "production"] }),
   API_URL: url(),
   TOKEN: str(),
   GOOGLE_MAPS_API_KEY: str(),
@@ -17,7 +17,7 @@ const ENV = cleanEnv(RAW_ENV, {
 
 export const {
   BASE_URL,
-  DENO_ENV,
+  CURRENT_ENV,
   API_URL,
   TOKEN,
   GOOGLE_MAPS_API_KEY,

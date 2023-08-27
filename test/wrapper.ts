@@ -2,11 +2,11 @@ import { assertEquals } from "$std/testing/asserts.ts"
 // import { Status } from "$std/http/http_status.ts"
 import { delay } from "$std/async/delay.ts"
 import { startFreshServer } from "$fresh/tests/test_utils.ts"
-import { BASE_URL, DENO_ENV } from "@/utils/config.js"
+import { BASE_URL, CURRENT_ENV } from "@/utils/config.js"
 // import puppeteer from "puppeteer"
 import { default as puppeteer } from "npm:puppeteer"
 
-const puppet_config = DENO_ENV === "development"
+const puppet_config = CURRENT_ENV === "development"
   ? { headless: false, defaultViewport: null }
   : { headless: true }
 

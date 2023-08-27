@@ -1,7 +1,7 @@
 import Header from "@/components/Header.jsx"
 import Footer from "@/components/Footer.jsx"
 import { tw } from "twind"
-import { DENO_ENV, GTM_ID } from "@/utils/config.js"
+import { CURRENT_ENV, GTM_ID } from "@/utils/config.js"
 import { globalStyles } from "@/utils/style.js"
 import { Head } from "$fresh/runtime.ts"
 
@@ -62,7 +62,9 @@ const Layout = ({ children, data = {} }) => (
   <>
     <Head>
       <SchemaORG />
-      {DENO_ENV === "production" ? <GoogleAnalytics GTM_ID={GTM_ID} /> : <></>}
+      {CURRENT_ENV === "production"
+        ? <GoogleAnalytics GTM_ID={GTM_ID} />
+        : <></>}
     </Head>
     <section class={tw`${globalStyles} flex justify-center header-wrapper`}>
       <Header active={data.route} />
@@ -71,7 +73,7 @@ const Layout = ({ children, data = {} }) => (
     <section class={`flex justify-center`}>
       <Footer hits={data?.state?.hits} />
     </section>
-    {DENO_ENV === "development"
+    {CURRENT_ENV === "development"
       ? (
         <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white">
           <pre>{JSON.stringify(data, null, 2 )}</pre>

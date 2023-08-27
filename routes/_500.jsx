@@ -1,6 +1,6 @@
 import { Head } from "$fresh/runtime.ts"
 import Layout from "@/components/Layout.jsx"
-import { DENO_ENV } from "@/utils/config.js"
+import { CURRENT_ENV } from "@/utils/config.js"
 
 export default function Page500(props) {
   const { error } = props
@@ -20,7 +20,7 @@ export default function Page500(props) {
           <h2>
             500 Error
           </h2>
-          {DENO_ENV === "development" ? <pre>{message}</pre> : <></>}
+          {CURRENT_ENV === "development" ? <pre>{message}</pre> : <></>}
           <p>
             The server had an error, try again later.
           </p>
