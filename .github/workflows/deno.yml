@@ -50,7 +50,7 @@ jobs:
           path: ${{ env.DENO_DIR }}
 
       - name: Install Chromium for Puppeteer
-        run: PUPPETEER_PRODUCT=chrome deno run -A https://deno.land/x/puppeteer@16.2.0/install.ts
+        run: deno eval "import 'npm:puppeteer/install.js'"
 
       - name: Cache puppeteer
         uses: actions/cache@v3
