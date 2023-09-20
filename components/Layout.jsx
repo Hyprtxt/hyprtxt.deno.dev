@@ -65,14 +65,17 @@ const Layout = ({ children, data = {} }) => (
       {CURRENT_ENV === "production"
         ? <GoogleAnalytics GTM_ID={GTM_ID} />
         : <></>}
+      <meta name="view-transition" content="same-origin" />
     </Head>
-    <section class={tw`${globalStyles} flex justify-center header-wrapper`}>
-      <Header active={data.route} />
-    </section>
-    {children}
-    <section class={`flex justify-center`}>
-      <Footer hits={data?.state?.hits} />
-    </section>
+    <div class="whole-page" style="view-transition-name: page">
+      <section class={tw`${globalStyles} flex justify-center header-wrapper`}>
+        <Header active={data.route} />
+      </section>
+      {children}
+      <section class={`flex justify-center`}>
+        <Footer hits={data?.state?.hits} />
+      </section>
+    </div>
     {CURRENT_ENV === "development"
       ? (
         <section class="max-w-screen-md mx-auto py-8 px(8) space-y-4 bg-white">
