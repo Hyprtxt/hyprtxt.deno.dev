@@ -23,7 +23,7 @@ export async function handler(req, ctx) {
       value: new Deno.KvU64(1n),
     }).commit()
     const v = await kv.get(key)
-    ctx.state.hits = parseInt(v.value.value)
+    ctx.state.hits = parseInt(v.value.value) + 5844
   }
   const resp = await ctx.next()
   const now = Date.now()
