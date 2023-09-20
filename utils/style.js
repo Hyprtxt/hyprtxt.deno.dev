@@ -1,4 +1,4 @@
-import { asset } from "$fresh/runtime.ts"
+import { asset, NONE } from "$fresh/runtime.ts"
 import { animation, apply, css, keyframes, theme } from "twind/css"
 
 // ${animation("300ms ease-in-out 1", fadeIn)}
@@ -73,6 +73,7 @@ export const globalStyles = css({
         backgroundSize: "cover",
       },
       backgroundColor: theme("colors.purple"),
+      animation: "none",
     },
     ".header-wrapper": apply`mt-5`,
     ".logo-gradient":
