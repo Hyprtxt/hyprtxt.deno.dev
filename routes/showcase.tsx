@@ -38,7 +38,7 @@ export default function Showcase(props) {
               </a>
             </li>
             <li>
-              <a target="_blank" href="https://videopoker.academy/">
+              <a target="_blank" href="https://videopoker-academy.deno.dev/">
                 Video Poker Academy
               </a>{" "}
               <a
