@@ -51,7 +51,12 @@ export default function Footer({ children, active, hits = 0 }) {
 
       {menus.map((item) => (
         <div class="mb-4" key={item.title}>
-          <div class="font-bold">{item.title}</div>
+          <div class="font-bold">
+            {item.title === "Pages"
+              ? <a href="/pages" class="text-black">{item.title}</a>
+              : item.title}
+          </div>
+
           <ul class="mt-2">
             {item.children.map((child) => (
               <li class="mt-2" key={child.name}>
