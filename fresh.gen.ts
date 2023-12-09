@@ -2,41 +2,42 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/_404.jsx"
-import * as $1 from "./routes/_500.jsx"
-import * as $2 from "./routes/_app.tsx"
-import * as $3 from "./routes/_middleware.js"
-import * as $4 from "./routes/handler.tsx"
-import * as $5 from "./routes/index.tsx"
-import * as $6 from "./routes/pages/[slug].jsx"
-import * as $7 from "./routes/pages/index.jsx"
-import * as $8 from "./routes/showcase.tsx"
-import * as $9 from "./routes/sitemap.xml.js"
-import * as $10 from "./routes/uploads/[file].js"
-import * as $$0 from "./islands/SingleImagePopup.jsx"
-import * as $$1 from "./islands/Slideshow.tsx"
-import * as $$2 from "./islands/ThumbnailGallery.tsx"
+import * as $_404 from "./routes/_404.jsx"
+import * as $_500 from "./routes/_500.jsx"
+import * as $_app from "./routes/_app.tsx"
+import * as $_middleware from "./routes/_middleware.js"
+import * as $handler from "./routes/handler.tsx"
+import * as $index from "./routes/index.tsx"
+import * as $pages_slug_ from "./routes/pages/[slug].jsx"
+import * as $pages_index from "./routes/pages/index.jsx"
+import * as $showcase from "./routes/showcase.tsx"
+import * as $sitemap_xml from "./routes/sitemap.xml.js"
+import * as $uploads_file_ from "./routes/uploads/[file].js"
+import * as $SingleImagePopup from "./islands/SingleImagePopup.jsx"
+import * as $Slideshow from "./islands/Slideshow.tsx"
+import * as $ThumbnailGallery from "./islands/ThumbnailGallery.tsx"
+import { type Manifest } from "$fresh/server.ts"
 
 const manifest = {
   routes: {
-    "./routes/_404.jsx": $0,
-    "./routes/_500.jsx": $1,
-    "./routes/_app.tsx": $2,
-    "./routes/_middleware.js": $3,
-    "./routes/handler.tsx": $4,
-    "./routes/index.tsx": $5,
-    "./routes/pages/[slug].jsx": $6,
-    "./routes/pages/index.jsx": $7,
-    "./routes/showcase.tsx": $8,
-    "./routes/sitemap.xml.js": $9,
-    "./routes/uploads/[file].js": $10,
+    "./routes/_404.jsx": $_404,
+    "./routes/_500.jsx": $_500,
+    "./routes/_app.tsx": $_app,
+    "./routes/_middleware.js": $_middleware,
+    "./routes/handler.tsx": $handler,
+    "./routes/index.tsx": $index,
+    "./routes/pages/[slug].jsx": $pages_slug_,
+    "./routes/pages/index.jsx": $pages_index,
+    "./routes/showcase.tsx": $showcase,
+    "./routes/sitemap.xml.js": $sitemap_xml,
+    "./routes/uploads/[file].js": $uploads_file_,
   },
   islands: {
-    "./islands/SingleImagePopup.jsx": $$0,
-    "./islands/Slideshow.tsx": $$1,
-    "./islands/ThumbnailGallery.tsx": $$2,
+    "./islands/SingleImagePopup.jsx": $SingleImagePopup,
+    "./islands/Slideshow.tsx": $Slideshow,
+    "./islands/ThumbnailGallery.tsx": $ThumbnailGallery,
   },
   baseUrl: import.meta.url,
-}
+} satisfies Manifest
 
 export default manifest
