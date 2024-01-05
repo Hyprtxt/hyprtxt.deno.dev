@@ -72,11 +72,13 @@ export default function Showcase(props) {
                 Cactus Stone
               </a>
             </li>
-            <li>
+            {
+              /* <li>
               <a target="_blank" href="https://andbounds.com/">
                 ANDBOUNDS Inc.
               </a>
-            </li>
+            </li> */
+            }
           </ul>
           <h3>Open Source Projects</h3>
           <ul class="list-disc">
